@@ -663,6 +663,10 @@
       {
         "platform": "twitter",
         "url": "https://twitter.com"
+      },
+      {
+        "platform": "youtube",
+        "url": "https://www.youtube.com/@RivendellConsults"
       }
     ],
     "legalLinks": [
