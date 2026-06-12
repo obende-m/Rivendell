@@ -11,35 +11,35 @@ const config: Config = {
     extend: {
       colors: {
         // Core Brand
-        primary: "#f0c874",
-        "on-primary": "#3f2e00",
-        "primary-container": "#d2ad5c",
-        "on-primary-container": "#584100",
-        "primary-fixed": "#ffdf9e",
-        "primary-fixed-dim": "#e8c26e",
-        "inverse-primary": "#775a0f",
+        primary: "var(--primary)",
+        "on-primary": "var(--on-primary)",
+        "primary-container": "var(--primary-container)",
+        "on-primary-container": "var(--on-primary)",
+        "primary-fixed": "var(--primary-container)",
+        "primary-fixed-dim": "var(--primary)",
+        "inverse-primary": "var(--primary)",
 
         // Surfaces
-        surface: "#131412",
-        "surface-dim": "#131412",
-        "surface-bright": "#393937",
-        "surface-container-lowest": "#0e0e0d",
-        "surface-container-low": "#1b1c1a",
-        "surface-container": "#1f201e",
-        "surface-container-high": "#2a2a28",
-        "surface-container-highest": "#343533",
-        "surface-variant": "#343533",
-        "surface-tint": "#e8c26e",
+        surface: "var(--surface)",
+        "surface-dim": "var(--surface)",
+        "surface-bright": "var(--surface-container)",
+        "surface-container-lowest": "var(--background)",
+        "surface-container-low": "var(--surface-container-low)",
+        "surface-container": "var(--surface-container)",
+        "surface-container-high": "var(--surface-container)",
+        "surface-container-highest": "var(--surface-container)",
+        "surface-variant": "var(--surface-container-low)",
+        "surface-tint": "var(--primary)",
 
         // On-Surface
-        "on-surface": "#e4e2df",
-        "on-surface-variant": "#d1c5b3",
-        "inverse-surface": "#e4e2df",
-        "inverse-on-surface": "#30312f",
+        "on-surface": "var(--on-surface)",
+        "on-surface-variant": "var(--on-surface-variant)",
+        "inverse-surface": "var(--on-background)",
+        "inverse-on-surface": "var(--background)",
 
         // Background
-        background: "#131412",
-        "on-background": "#e4e2df",
+        background: "var(--background)",
+        "on-background": "var(--on-background)",
 
         // Secondary
         secondary: "#c9c6c5",
@@ -64,11 +64,11 @@ const config: Config = {
         "on-error-container": "#ffdad6",
 
         // Outline
-        outline: "#998f7f",
-        "outline-variant": "#4d4638",
+        outline: "var(--outline)",
+        "outline-variant": "var(--outline)",
 
         // Brand Accents
-        "gold-muted": "rgba(210, 173, 92, 0.4)",
+        "gold-muted": "var(--gold-muted)",
         stone: "#E8E3D8",
         "charcoal-light": "#2A2A2A",
       },

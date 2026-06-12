@@ -1,16 +1,44 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
-/* ============================
-   RIVENDELL CONSULTS
-   Global Styles & Design System
-   ============================ */
+:root {
+  --background: #f7f6f3;
+  --on-background: #1a1b18;
+  --surface: #faf8f5;
+  --surface-container-low: #f2efea;
+  --surface-container: #eae7e2;
+  --on-surface: #222320;
+  --on-surface-variant: #5a5956;
+  --primary: #c59b3f;
+  --primary-container: #eae1cd;
+  --on-primary: #ffffff;
+  --gold-muted: rgba(197, 155, 63, 0.15);
+  --outline: #bcaba0;
+  --nav-bg: 247, 246, 243;
+}
+
+.dark {
+  --background: #131412;
+  --on-background: #e4e2df;
+  --surface: #131412;
+  --surface-container-low: #1b1c1a;
+  --surface-container: #1f201e;
+  --on-surface: #e4e2df;
+  --on-surface-variant: #d1c5b3;
+  --primary: #f0c874;
+  --primary-container: #d2ad5c;
+  --on-primary: #3f2e00;
+  --gold-muted: rgba(210, 173, 92, 0.4);
+  --outline: #998f7f;
+  --nav-bg: 19, 20, 18;
+}
 
 @layer base {
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
   }
 
   html {
@@ -20,15 +48,15 @@
   }
 
   body {
-    background-color: #131412;
-    color: #e4e2df;
+    background-color: var(--background);
+    color: var(--on-background);
     overflow-x: hidden;
     font-family: var(--font-manrope), sans-serif;
   }
 
   ::selection {
-    background-color: rgba(240, 200, 116, 0.3);
-    color: #e4e2df;
+    background-color: var(--gold-muted);
+    color: var(--on-background);
   }
 
   /* Material Symbols Configuration */
@@ -42,43 +70,44 @@
   .glass-nav {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    background-color: rgba(19, 20, 18, 0.85);
+    background-color: rgba(var(--nav-bg), 0.85);
   }
 
   .glass-nav-transparent {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    background-color: rgba(31, 32, 30, 0.1);
+    background-color: rgba(var(--nav-bg), 0.15);
   }
 
   /* Ghost Border - Signature Rivendell UI element */
   .ghost-border {
-    border: 0.5px solid rgba(210, 173, 92, 0.2);
+    border: 0.5px solid var(--gold-muted);
   }
 
   .ghost-border-strong {
-    border: 0.5px solid rgba(210, 173, 92, 0.4);
+    border: 0.5px solid var(--primary);
   }
 
   /* Glass Panel */
   .glass-panel {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    background: rgba(31, 32, 30, 0.6);
+    background: rgba(var(--nav-bg), 0.6);
   }
 
   /* Vertical Gold Line - Section decorator */
   .vertical-line {
     width: 1px;
     height: 64px;
-    background: linear-gradient(to bottom, #f0c874, transparent);
+    background: linear-gradient(to bottom, var(--primary), transparent);
   }
 
   .vertical-line-tall {
     width: 1px;
     height: 100px;
-    background: linear-gradient(to bottom, rgba(240, 200, 116, 1), transparent);
+    background: linear-gradient(to bottom, var(--primary), transparent);
   }
+
 
   /* Editorial Hover Line - Gold underline from center */
   .editorial-hover-line {

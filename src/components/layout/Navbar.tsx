@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getNavigation, getSiteSettings } from "@/lib/sanity/queries";
 import { NavigationData, SiteSettings } from "@/lib/sanity/types";
 import { MobileMenu } from "./MobileMenu";
+import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -89,7 +90,9 @@ export function Navbar() {
           </div>
 
           {/* Consultation CTA & Hamburger */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 md:gap-6">
+            <ThemeToggle />
+
             <Link href={cta.href} className="hidden md:block">
               <button className="bg-primary text-on-primary hover:bg-primary-fixed hover:text-on-primary-fixed px-8 py-3.5 font-label-caps text-[10px] tracking-[0.2em] transition-all duration-300 cursor-pointer shadow-lg shadow-primary/5 hover:scale-[1.02] active:scale-[0.98]">
                 {cta.text.toUpperCase()}
