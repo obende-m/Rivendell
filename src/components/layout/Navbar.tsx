@@ -71,7 +71,10 @@ export function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-12">
             {menuItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname === item.href || pathname?.startsWith(item.href + "/");
               return (
                 <Link
                   key={item.label}

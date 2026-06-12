@@ -67,7 +67,10 @@ export function MobileMenu({ onClose, menuItems, cta }: MobileMenuProps) {
       {/* Centered Navigation Links */}
       <div className="flex flex-col items-center justify-center space-y-8 my-auto text-center">
         {menuItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive =
+            item.href === "/"
+              ? pathname === "/"
+              : pathname === item.href || pathname?.startsWith(item.href + "/");
           return (
             <motion.div key={item.label} variants={itemVariants}>
               <Link

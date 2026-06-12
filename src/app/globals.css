@@ -2,19 +2,19 @@
 @config "../../tailwind.config.ts";
 
 :root {
-  --background: #f7f6f3;
-  --on-background: #1a1b18;
-  --surface: #faf8f5;
-  --surface-container-low: #f2efea;
-  --surface-container: #eae7e2;
-  --on-surface: #222320;
-  --on-surface-variant: #5a5956;
-  --primary: #c59b3f;
-  --primary-container: #eae1cd;
-  --on-primary: #ffffff;
-  --gold-muted: rgba(197, 155, 63, 0.15);
-  --outline: #bcaba0;
-  --nav-bg: 247, 246, 243;
+  --background: #FAF9F6;
+  --on-background: #121311;
+  --surface: #FFFFFF;
+  --surface-container-low: #F4F3EE;
+  --surface-container: #EAE8E2;
+  --on-surface: #121311;
+  --on-surface-variant: #3A3D38;
+  --primary: #A37E2C;
+  --primary-container: #F1EAD9;
+  --on-primary: #FFFFFF;
+  --gold-muted: rgba(163, 126, 44, 0.18);
+  --outline: #9F9788;
+  --nav-bg: 250, 249, 246;
 }
 
 .dark {

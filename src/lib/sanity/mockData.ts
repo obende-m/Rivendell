@@ -55,6 +55,7 @@ export const mockSiteSettings: SiteSettings = {
 
 export const mockNavigation: NavigationData = {
   mainMenu: [
+    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services", isMegaMenu: true, children: [
       { label: "Architecture", href: "/services/architecture" },
