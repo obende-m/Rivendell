@@ -50,7 +50,7 @@ export function Footer() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               alt="Rivendell Consults"
-              className="h-9 mb-4 grayscale hover:grayscale-0 transition-all duration-300"
+              className="h-9 mb-4 object-contain"
               src={logoUrl}
             />
           ) : (
@@ -69,7 +69,7 @@ export function Footer() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-gold-muted/20 flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/5 transition-all duration-300"
+                className="w-10 h-10 border border-gold-muted flex items-center justify-center text-on-surface hover:text-primary hover:bg-primary/5 transition-all duration-300"
                 title={link.platform}
               >
                 {getSocialIcon(link.platform)}
@@ -163,6 +163,12 @@ export function Footer() {
         <div className="section-container max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body-md text-[10px] tracking-widest text-on-surface-variant uppercase">
             {copyright}
+          </p>
+          <p className="font-body-md text-[10px] tracking-widest text-on-surface-variant uppercase">
+            Built by{" "}
+            <a href="#" className="text-primary hover:underline transition-all duration-300">
+              RUNA Labs
+            </a>
           </p>
           <div className="flex space-x-8">
             {legalLinks.map((link) => (
