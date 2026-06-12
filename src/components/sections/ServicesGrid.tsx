@@ -1,0 +1,97 @@
+"use client";
+
+import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
+import { StaggerChildren } from "@/components/animations/StaggerChildren";
+
+interface CapabilityItem {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+interface ServicesGridProps {
+  eyebrow?: string;
+  heading?: string;
+  capabilities?: CapabilityItem[];
+}
+
+export function ServicesGrid({
+  eyebrow = "Core Capabilities",
+  heading = "Expertise Defined",
+  capabilities,
+}: ServicesGridProps) {
+  const capabilityList = capabilities || [
+    {
+      title: "Project Design",
+      description:
+        "Articulating your vision through sophisticated conceptual drawings and meticulous spatial planning.",
+      icon: "draw",
+    },
+    {
+      title: "Structural Precision",
+      description:
+        "Ensuring permanence and safety through rigorous engineering standards and premium material selection.",
+      icon: "engineering",
+    },
+    {
+      title: "Site Development",
+      description:
+        "Optimizing landscapes for both aesthetic beauty and structural integrity from the ground up.",
+      icon: "landscape",
+    },
+    {
+      title: "Investment Strategy",
+      description:
+        "Providing deep market insights to maximize the ROI of your real estate portfolio developments.",
+      icon: "payments",
+    },
+    {
+      title: "Legal & Advisory",
+      description:
+        "Navigating complex zoning laws and property regulations with absolute precision and legal rigor.",
+      icon: "gavel",
+    },
+    {
+      title: "Turnkey Solutions",
+      description:
+        "End-to-end project management from initial acquisition to final interior dressing and handover.",
+      icon: "key",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-32 bg-background px-grid-margin border-b border-gold-muted/10">
+      <div className="section-container max-w-[1440px] mx-auto">
+        {/* Section Header */}
+        <RevealOnScroll className="text-center mb-16 md:mb-24" y={15}>
+          <p className="font-label-caps text-label-caps text-primary mb-4 tracking-[0.4em] uppercase">
+            {eyebrow}
+          </p>
+          <h2 className="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
+            {heading}
+          </h2>
+        </RevealOnScroll>
+
+        {/* Bento/Capability 3x2 Grid with thin overlapping border lines */}
+        <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gold-muted/20 border border-gold-muted/20">
+          {capabilityList.map((cap) => (
+            <div
+              key={cap.title}
+              className="bg-background p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 group select-none flex flex-col justify-start min-h-[300px]"
+            >
+              <span className="material-symbols-outlined text-3xl text-primary mb-8 block transition-transform group-hover:scale-110 duration-300">
+                {cap.icon}
+              </span>
+              <h4 className="font-playfair text-2xl mb-4 text-on-surface group-hover:text-primary transition-colors duration-300">
+                {cap.title}
+              </h4>
+              <p className="font-body-md text-on-surface-variant/80 text-sm leading-relaxed">
+                {cap.description}
+              </p>
+            </div>
+          ))}
+        </StaggerChildren>
+      </div>
+    </section>
+  );
+}

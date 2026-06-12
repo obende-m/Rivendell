@@ -1,26 +1,227 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================
+   RIVENDELL CONSULTS
+   Global Styles & Design System
+   ============================ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #131412;
+    color: #e4e2df;
+    overflow-x: hidden;
+    font-family: var(--font-manrope), sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(240, 200, 116, 0.3);
+    color: #e4e2df;
+  }
+
+  /* Material Symbols Configuration */
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Glass Navigation */
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(19, 20, 18, 0.85);
+  }
+
+  .glass-nav-transparent {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(31, 32, 30, 0.1);
+  }
+
+  /* Ghost Border - Signature Rivendell UI element */
+  .ghost-border {
+    border: 0.5px solid rgba(210, 173, 92, 0.2);
+  }
+
+  .ghost-border-strong {
+    border: 0.5px solid rgba(210, 173, 92, 0.4);
+  }
+
+  /* Glass Panel */
+  .glass-panel {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(31, 32, 30, 0.6);
+  }
+
+  /* Vertical Gold Line - Section decorator */
+  .vertical-line {
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(to bottom, #f0c874, transparent);
+  }
+
+  .vertical-line-tall {
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(240, 200, 116, 1), transparent);
+  }
+
+  /* Editorial Hover Line - Gold underline from center */
+  .editorial-hover-line {
+    position: relative;
+  }
+
+  .editorial-hover-line::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: #f0c874;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .editorial-hover-line:hover::after {
+    width: 100%;
+  }
+
+  /* Editorial Shadow */
+  .editorial-shadow {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Hero Overlay Gradient */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(19, 20, 18, 0) 0%,
+      rgba(19, 20, 18, 0.8) 100%
+    );
+  }
+
+  /* Project Card Hover */
+  .project-card .project-overlay {
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .project-card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Section Container */
+  .section-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  /* Input Underline Style - Bottom border only */
+  .input-underline {
+    border-bottom: 0.5px solid #998f7f;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .input-underline:focus {
+    border-bottom: 1.5px solid #f0c874;
+  }
+
+  /* Timeline Line */
+  .timeline-line {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(210, 173, 92, 0.4),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  /* Transition presets */
+  .transition-slow {
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-editorial {
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Parallax Background */
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Mask Gradient */
+  .mask-gradient {
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #131412;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d2ad5c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f0c874;
+}
+
+/* Responsive Section Padding */
+@media (max-width: 768px) {
+  .section-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

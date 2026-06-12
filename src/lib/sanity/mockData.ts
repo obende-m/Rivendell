@@ -1,0 +1,648 @@
+import {
+  HomepageData,
+  SiteSettings,
+  NavigationData,
+  FooterData,
+  ContactInfoData,
+  SEOSettingsData,
+  Project,
+  Service,
+  Development,
+  TeamMember,
+  Testimonial,
+  GalleryAlbum,
+  Career,
+} from "./types";
+
+// Helper for playfair paragraph objects (to mimic Portable Text structure)
+const createPortableText = (text: string) => [
+  {
+    _key: Math.random().toString(36).substr(2, 9),
+    _type: "block",
+    style: "normal",
+    children: [
+      {
+        _key: Math.random().toString(36).substr(2, 9),
+        _type: "span",
+        text: text,
+        marks: [],
+      },
+    ],
+  },
+];
+
+export const mockSiteSettings: SiteSettings = {
+  siteName: "Rivendell Consults",
+  logo: {
+    asset: {
+      url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDka0w5XtA43wpTUNQSXIqqfvKJlT7ZWVdncyzPRGECgOXd8L0JXgvOyXrJjnXHe-hBFs9xvb9l3EO36FhyXqZjf7mAoI1DJscfNYMkQbA0gn8nIAFHgfwLNT8qAeJFGEAqU6Aq_pHdfpnQz3--sICvvg6L2cu3_sPODFmmfxmraMuXNA41G6SOA4pZvr8O7zT4UrmRl2Pmno2D77tTJVQNkzgnLwW38qnG7FAccDqPcirCe4wGKoWw4GSLoRBqQJKuYOpG6zXYy5Uo",
+    },
+  },
+  logoDark: {
+    asset: {
+      url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDka0w5XtA43wpTUNQSXIqqfvKJlT7ZWVdncyzPRGECgOXd8L0JXgvOyXrJjnXHe-hBFs9xvb9l3EO36FhyXqZjf7mAoI1DJscfNYMkQbA0gn8nIAFHgfwLNT8qAeJFGEAqU6Aq_pHdfpnQz3--sICvvg6L2cu3_sPODFmmfxmraMuXNA41G6SOA4pZvr8O7zT4UrmRl2Pmno2D77tTJVQNkzgnLwW38qnG7FAccDqPcirCe4wGKoWw4GSLoRBqQJKuYOpG6zXYy5Uo",
+    },
+  },
+  favicon: null,
+  companyRegistration: "RC: 12458936 - Rivendell International Group",
+  googleAnalyticsId: "G-RIVENDELL",
+  defaultSeo: {
+    metaTitle: "Rivendell Consults | Building Legacies Through Design",
+    metaDescription:
+      "Rivendell Consults delivers exceptional architecture, construction, and real estate developments through innovation, precision, and craftsmanship.",
+  },
+};
+
+export const mockNavigation: NavigationData = {
+  mainMenu: [
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services", isMegaMenu: true, children: [
+      { label: "Architecture", href: "/services/architecture" },
+      { label: "Construction", href: "/services/construction" },
+      { label: "Real Estate Development", href: "/developments" },
+    ] },
+    { label: "Projects", href: "/projects" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Contact", href: "/contact" },
+  ],
+  ctaButton: { text: "Book Consultation", href: "/contact" },
+};
+
+export const mockFooter: FooterData = {
+  companyDescription:
+    "Meticulously crafting architectural legacies through a rigorous fusion of precision, innovation, and ethereal luxury.",
+  logo: mockSiteSettings.logo,
+  columns: [
+    {
+      heading: "Our Services",
+      links: [
+        { label: "Architecture", href: "/services/architecture" },
+        { label: "Construction", href: "/services/construction" },
+        { label: "Real Estate Development", href: "/developments" },
+        { label: "Project Management", href: "/services" },
+      ],
+    },
+    {
+      heading: "Company",
+      links: [
+        { label: "The Firm", href: "/about" },
+        { label: "Our Process", href: "/about" },
+        { label: "Portfolio Archive", href: "/projects" },
+        { label: "Careers", href: "/careers" },
+      ],
+    },
+  ],
+  socialLinks: [
+    { platform: "instagram", url: "https://instagram.com" },
+    { platform: "linkedin", url: "https://linkedin.com" },
+    { platform: "twitter", url: "https://twitter.com" },
+  ],
+  legalLinks: [
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms of Service", href: "#" },
+  ],
+  newsletter: {
+    heading: "Subscribe",
+    description: "Sign up to receive our latest insights and architectural updates.",
+    placeholder: "Your email address",
+  },
+  copyright: "© 2026 Rivendell Consults. All rights reserved. Meticulously Crafted.",
+};
+
+export const mockContactInfo: ContactInfoData = {
+  offices: [
+    {
+      name: "Lusaka Presence",
+      address: "1245 Architectural Row, Suite 400, Horizon District, Lusaka, Zambia",
+      phone: ["+260 970 000 000"],
+      email: "concierge@rivendell.consults",
+      hours: "Mon - Fri: 8:00 AM - 5:00 PM",
+    },
+    {
+      name: "Lagos Head Office",
+      address: "8B Admiralty Way, Lekki Phase 1, Lagos, Nigeria",
+      phone: ["+234 1 234 5678", "+234 800 RIVENDELL"],
+      email: "lagos@rivendell.consults",
+      hours: "Mon - Fri: 8:00 AM - 6:00 PM",
+    },
+  ],
+  whatsappNumber: "+2348000000000",
+  calendlyLink: "https://calendly.com",
+};
+
+export const mockSEOSettings: SEOSettingsData = {
+  siteUrl: "https://rivendell.ng",
+  metaTitleTemplate: "%s | Rivendell Consults",
+  robotsTxt: "User-agent: *\nAllow: /",
+};
+
+export const mockServices: Service[] = [
+  {
+    _id: "service-1",
+    _type: "service",
+    title: "Architecture & Design",
+    slug: { current: "architecture" },
+    icon: "architecture",
+    description:
+      "Visionary designs that balance form and function, tailored to the unique narrative of each landscape and client.",
+    benefits: [
+      "Conceptual spatial planning and analysis",
+      "Sustainable carbon-neutral design guidelines",
+      "High-fidelity 3D modeling and lighting studies",
+      "Rigorous zoning and planning compliance review",
+    ],
+    processSteps: [
+      { stepNumber: "01", title: "Concept & Narrative", description: "Exploring raw ideas, mapping typography, and developing the core architectural narrative." },
+      { stepNumber: "02", title: "Spatial Seeding", description: "Converting concepts into dimensional floorplans, detailing light apertures, and seating volumes." },
+      { stepNumber: "03", title: "Material & Detail", description: "Selecting heavy stone, glass interfaces, custom veneers, and preparing blueprints." },
+    ],
+    heroImage: {
+      asset: {
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      },
+    },
+  },
+  {
+    _id: "service-2",
+    _type: "service",
+    title: "Construction Excellence",
+    slug: { current: "construction" },
+    icon: "foundation",
+    description:
+      "Precision engineering and master craftsmanship transform blueprints into enduring physical realities of the highest caliber.",
+    benefits: [
+      "Principal contracting and construction oversight",
+      "Zero-tolerance structural quality assurance",
+      "Global material procurement and supply logistics",
+      "Rigid site safety and building code compliance",
+    ],
+    processSteps: [
+      { stepNumber: "01", title: "Site Seeding", description: "Clearing terrain, managing load points, and preparing the structural foundation." },
+      { stepNumber: "02", title: "Core Framing", description: "Constructing columns, cantilever slabs, and massive steel frames." },
+      { stepNumber: "03", title: "Enclosure & Finish", description: "Fitting floor-to-ceiling glass, exterior stone skins, and commissioning smart grids." },
+    ],
+    heroImage: {
+      asset: {
+        url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+      },
+    },
+  },
+  {
+    _id: "service-3",
+    _type: "service",
+    title: "Real Estate Development",
+    slug: { current: "real-estate" },
+    icon: "domain",
+    description:
+      "Strategic development and portfolio management focused on long-term value creation in the luxury property market.",
+    benefits: [
+      "Sourcing high-yield land parcels",
+      "Feasibility and risk mitigation reviews",
+      "Syndicated funding options and investments",
+      "Turnkey management of property assets",
+    ],
+    processSteps: [
+      { stepNumber: "01", title: "Acquisition", description: "Identifying premium coastal and urban plots with strategic growth vectors." },
+      { stepNumber: "02", title: "Development Seeding", description: "Securing approvals, designing high-end pillars, and launching sales." },
+      { stepNumber: "03", title: "Handover", description: "Dressing interiors, executing title documents, and key handover." },
+    ],
+    heroImage: {
+      asset: {
+        url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      },
+    },
+  },
+];
+
+export const mockProjects: Project[] = [
+  {
+    _id: "project-1",
+    _type: "project",
+    name: "Sarai Situs",
+    slug: { current: "sarai-situs" },
+    category: "residential",
+    status: "completed",
+    featured: true,
+    displayOrder: 1,
+    location: "Costa del Sol (Lusaka representation)",
+    client: "Julian Sterling",
+    year: "2023",
+    duration: "24 Months",
+    budget: "$4.5 Million",
+    description: createPortableText(
+      "Sarai Situs was born from a challenge to redefine luxury living within a dense coastal topography. The objective was to create a permanent structure that felt light, almost ethereal, while utilizing the heavy permanence of architectural concrete and stone. The design leverages a series of cantilevered planes that extend over the natural slope, offering unobstructed views of the horizon."
+    ),
+    challenge:
+      "Redefining luxury living within a dense coastal topography. The site had a steep natural slope and extreme climate load, requiring heavy foundation structures that needed to look weightless and elegant.",
+    approach:
+      "We utilized structural steel frames combined with post-tension concrete slabs. This allowed us to build 8-meter cantilevers without bulky column supports, keeping the facade purely transparent.",
+    solution:
+      "A three-story layout where the main living areas hover over the cliff edge. We specified floor-to-ceiling high-performance double-glazed glass pane joints and structural basalt stone wall panels.",
+    results:
+      "Completed in late 2023 on schedule, Sarai Situs has become a regional benchmark for luxury coastal architectural design, achieving zero thermal leaks and 100% client satisfaction.",
+    architect: "Alistair Vance, Principal",
+    contractor: "Rivendell Build Partners",
+    featuredImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuBu4no3ERAPRNRP2lS8TNJX_9WWwQVCkteXDGDdvirPUsOLr05M2FF4zdZ6pcUdW1VCPBiOZlvq7XlCotmbGjIGkCYgGSE0RgPURm1Um4_SnKf2gJxhsRGoDnjYj2NbwUjYRhpwDeboxhVME_lJEVgiqJ-FMJ7BVap4S5GO_Ej5h2cecClU69P6Vex5DHV98aZ-zUB1dBSv08rhzRi3BiGEfLvJUoJ_0kjJIwJfAD4P_wLqpagLjI-hM3k1gxVhJUJAMIAhu7Vg4D36",
+      },
+    },
+    heroImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUQK4uiZomRrdKP2irFAXbdgY4vfVi5hh_jrc5YuUzDPed0wILFzBWNmIKGfde7ZtfVk8GwNbhIADQEj25C8zWgmTfvNWjtfJhIKlnaH49kp9EdrlHqzPobO36qNO7MTgoc6GUZMLLuCv_T2vOtEAJqI-efNUqTyIoSb-Rfpg7YHU4rTCra4R5zvlu0_xG_mFlJA4AwfdnNbaxnju4FEbu0EkYfqzpr63ncIRTZ4xI1rrzVXBhrjHPi3qwzaC3LrTHLhfYKd6sFmLE",
+      },
+    },
+    gallery: [
+      {
+        type: "image",
+        caption: "Main double-height living atrium featuring sculptural staircase",
+        image: {
+          asset: {
+            url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDiAf3ltjzkNfz9s0D78BtwX1_qV9nRSZUfbUcNeG5Ew3qjbI147bXrU8JHmWl7-0vzUhDRSLjI_P6dxZ82j31tyO4enJjxB6H0i8h-_uw6mCtFxGzybsVpkXCrFoGLqdU3yPPIU4odVGcxLNkCWmIJMJR4CO4hIV9yWl78v3Dvmwk-6MfsEbCGO7ywYiX34DyjENeXzcCkYdJ0yzynCPM-H_VawJwwotJ5zc2_RDDrVZEofxasRMaM8fbVHm5tuxm732cb3oMR0T1p",
+          },
+        },
+      },
+      {
+        type: "image",
+        caption: "Close-up detailing of basalt stonework and glass joints",
+        image: {
+          asset: {
+            url: "https://lh3.googleusercontent.com/aida-public/AB6AXuB9zjgtFyuI_y1Y7NsYbK_Q34kwJyqv2K6EbJjJpQTQqKI32_wSvXPzV_Uw90XDlNmH0oBFDvSY6jjnoi6THEODZfJsUBZz06sQBQMQPVRNY5VjmS9R7KCFI1lTNOTsDn75y0XqQeW95X3aCQ81CgPJv45VLv2mNx9Sl3rqmHfiYetVU9dDCscWVSQfMYMznSxg7Iwd5SFVB8en74X4BktuLVJ425cueDIPBqHqbbMpl1WTkINrqSvlpkmnSyziyey7E_spez6tuWrD",
+          },
+        },
+      },
+      {
+        type: "image",
+        caption: "Primary suite terrace view at dusk overlooking infinity pool",
+        image: {
+          asset: {
+            url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZYL-v1Hg227hc1PxnFjNBYJYcv2Dk8yhlElDfvrhX7Ho4khvx5kssSL55eUH41DvIEF7Bx6N_aKqMP_bKtiqfvPWmOvTK6_6Yf8_i_eCMaPIEtKKYkYJh8YZGLcGVFamQ8GgO4Q2rq4eGwSc6WbS73AhwHvZPc6-TSxxUxzg35mYB1cDg8-vmQJUNKDNDLuL5NyNvKAnxEune28hIoG3QzmeIcddGyYbRFA0RGN1fkhFbBh7juk0jaK50TYC-_u6-5beVXyGG07EO",
+          },
+        },
+      },
+    ],
+  },
+  {
+    _id: "project-2",
+    _type: "project",
+    name: "Makarios",
+    slug: { current: "makarios" },
+    category: "commercial",
+    status: "completed",
+    featured: true,
+    displayOrder: 2,
+    location: "Mauritius Coastline",
+    client: "Vance Holdings Ltd",
+    year: "2024",
+    duration: "30 Months",
+    budget: "$12.0 Million",
+    description: createPortableText(
+      "A testament to precision engineering. Makarios stands as a coastal icon, utilizing sustainable materials and innovative thermal cooling systems to deliver unmatched luxury in a tropical climate. Featuring parametric architectural framing and beautiful sky gardens."
+    ),
+    architect: "Elena Rostova, Lead Designer",
+    featuredImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuBKOnXHTqcjfpxsYKbIboHQqB0OjdzJUE_lD80PeyYtuw-1aph2CSKOtaLOJURVHjkhEso-xgHFF6QwoK7zf_bLV3jfY_zIp3kiA3FN8SzxJ5b-4VLUHP8K5Bqgsn1Kryj2v4OhWS589Zykr__iYxQq3E0VWnzVbYxsMAK7XvHDzdBy5pzKTFMbwhA5Yhj3FlHxvng6ICOkxBFyCj9a3kSUpkAxmQHU8slHhpv86l83jkj4yfgBYly8rQczGWXHvnJZOMvKpaOKcNnD",
+      },
+    },
+    heroImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuBKOnXHTqcjfpxsYKbIboHQqB0OjdzJUE_lD80PeyYtuw-1aph2CSKOtaLOJURVHjkhEso-xgHFF6QwoK7zf_bLV3jfY_zIp3kiA3FN8SzxJ5b-4VLUHP8K5Bqgsn1Kryj2v4OhWS589Zykr__iYxQq3E0VWnzVbYxsMAK7XvHDzdBy5pzKTFMbwhA5Yhj3FlHxvng6ICOkxBFyCj9a3kSUpkAxmQHU8slHhpv86l83jkj4yfgBYly8rQczGWXHvnJZOMvKpaOKcNnD",
+      },
+    },
+  },
+  {
+    _id: "project-3",
+    _type: "project",
+    name: "The Meridian Estate",
+    slug: { current: "meridian-estate" },
+    category: "residential",
+    status: "completed",
+    featured: true,
+    displayOrder: 3,
+    location: "London, UK",
+    client: "Julian Sterling",
+    year: "2024",
+    duration: "18 Months",
+    budget: "$8.5 Million",
+    description: createPortableText(
+      "A sprawling ultra-modern residential estate at dusk, featuring expansive floor-to-ceiling glass walls, a glowing infinity pool, and cantilevered concrete structures. The design details embody modern luxury and architectural stability."
+    ),
+    architect: "Alistair Vance, Principal",
+    featuredImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuBF1Ak4xt0p7VdNQAm0l6I7zA_dFYXO_1QMvcS-Vrkf-tuc2cbUJTXgocYk0YDCH_giGHsaQp6i3qKXLulr7wYtdBYFngg-dAMD8YUHA-i52YNsiVdR4rH7ah5h1Gh1wombD-K8EP1S0ZbtefmxPqJYMlF98HsSRWDTwuGCfYhjYRRzl_elW1ltRkNSM2ft3W-OPK2fO-_Y1412jWZ8qilfieZuoL4WGzjRbVOF7UxaTeTh-Bkp4K7xBXFz0xiLa8a67aoz0e2rOBcY",
+      },
+    },
+    heroImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuBF1Ak4xt0p7VdNQAm0l6I7zA_dFYXO_1QMvcS-Vrkf-tuc2cbUJTXgocYk0YDCH_giGHsaQp6i3qKXLulr7wYtdBYFngg-dAMD8YUHA-i52YNsiVdR4rH7ah5h1Gh1wombD-K8EP1S0ZbtefmxPqJYMlF98HsSRWDTwuGCfYhjYRRzl_elW1ltRkNSM2ft3W-OPK2fO-_Y1412jWZ8qilfieZuoL4WGzjRbVOF7UxaTeTh-Bkp4K7xBXFz0xiLa8a67aoz0e2rOBcY",
+      },
+    },
+  },
+  {
+    _id: "project-4",
+    _type: "project",
+    name: "Onyx Tower",
+    slug: { current: "onyx-tower" },
+    category: "commercial",
+    status: "completed",
+    featured: false,
+    displayOrder: 4,
+    location: "Dubai, UAE",
+    client: "Onyx Developments",
+    year: "2023",
+    duration: "36 Months",
+    budget: "$45.0 Million",
+    description: createPortableText(
+      "A high-angle architectural shot of a sleek glass skyscraper in a metropolitan business district. The design is minimalist and authoritative, utilizing deep charcoals and warm gold tones to emphasize a corporate but high-end aesthetic."
+    ),
+    architect: "Elena Rostova, Director",
+    featuredImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuAw9NwvEgqeXiIUNB5iNUgTkowlZl5qAV4ZhyzMo_a_8vrQMJaROM5naUENbpWjZDRve4fMGhidtaSnGP3bHDcD07G-ynMvxV5awe-WPumX4qDAV1hl55_J_fyIQbXKKWpHeHkzlahDb7sIvUhD_y3O4wjhs96h-xyfAsyCSqLp259HFx-H58rdcfPADXLlyg1LdB_D_d1CwE2TeqN2Lw2easSvpfKcNPueBhqbyvrEF_bgylEIiap89v_pqj5UINdCyniBAqnpriiy",
+      },
+    },
+    heroImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuAw9NwvEgqeXiIUNB5iNUgTkowlZl5qAV4ZhyzMo_a_8vrQMJaROM5naUENbpWjZDRve4fMGhidtaSnGP3bHDcD07G-ynMvxV5awe-WPumX4qDAV1hl55_J_fyIQbXKKWpHeHkzlahDb7sIvUhD_y3O4wjhs96h-xyfAsyCSqLp259HFx-H58rdcfPADXLlyg1LdB_D_d1CwE2TeqN2Lw2easSvpfKcNPueBhqbyvrEF_bgylEIiap89v_pqj5UINdCyniBAqnpriiy",
+      },
+    },
+  },
+  {
+    _id: "project-5",
+    _type: "project",
+    name: "Velasca Suite",
+    slug: { current: "velasca-suite" },
+    category: "interior",
+    status: "completed",
+    featured: false,
+    displayOrder: 5,
+    location: "Milan, Italy",
+    client: "Milano Interior Design",
+    year: "2023",
+    duration: "12 Months",
+    budget: "$1.2 Million",
+    description: createPortableText(
+      "An interior view of a minimalist, high-end gallery space with polished concrete floors and dramatic skylights. The lighting is soft and design-focused, creating stark beautiful contrasts."
+    ),
+    architect: "Alistair Vance, Principal",
+    featuredImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDA-wdviY6pGGc8J20yg6BPPik_zJqwkposBVV6Bs4SX9b9JvOiKb3M3qRRGMLOIAS85ITDBPvYAcY3a2e-9FbhRwGWz2uwSFlBDnQtSVg2WOe_1ddOnRxwUcSbqamhBl5BDSj3p2VZ7LZnEeAWrmhqP8Lvkh3IUW9QR-DNu3nlO0C3UDcq7JNBXPKQi_VNETvBeuSVLrbHP-_OK0r3o3OygEV7v2Pxa_BW-2GBhFEoyzf3pnwSUUOWQuBE4ox9muHRgoDXEyOEMMiC",
+      },
+    },
+    heroImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDA-wdviY6pGGc8J20yg6BPPik_zJqwkposBVV6Bs4SX9b9JvOiKb3M3qRRGMLOIAS85ITDBPvYAcY3a2e-9FbhRwGWz2uwSFlBDnQtSVg2WOe_1ddOnRxwUcSbqamhBl5BDSj3p2VZ7LZnEeAWrmhqP8Lvkh3IUW9QR-DNu3nlO0C3UDcq7JNBXPKQi_VNETvBeuSVLrbHP-_OK0r3o3OygEV7v2Pxa_BW-2GBhFEoyzf3pnwSUUOWQuBE4ox9muHRgoDXEyOEMMiC",
+      },
+    },
+  },
+  {
+    _id: "project-6",
+    _type: "project",
+    name: "The Gaia Hub",
+    slug: { current: "gaia-hub" },
+    category: "mixed-use",
+    status: "completed",
+    featured: false,
+    displayOrder: 6,
+    location: "Singapore",
+    client: "Gaia Consortium",
+    year: "2024",
+    duration: "24 Months",
+    budget: "$32.0 Million",
+    description: createPortableText(
+      "A futuristic mixed-use development featuring organic, flowing architectural curves, sky terrace gardens, and highly advanced microgrid power setups."
+    ),
+    architect: "Alistair Vance, Principal",
+    featuredImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDSh_Rzc0xfXwSal4kyxfqCH5pluvY6VFWKX0jDKCNDx9WoWD26_s64enAH4tQIOY1nYwoURhEcTdiuZXoi1ZcoHWlSTlnShlwtG17paxqyR2tz9w2T36GBrNpRQR0GoqgdpWRdr845e6Nx_gGWqKgF1yeX70EuEjgn6_PtmyF280m5AmcPYyI0ae6tei7lNIFbHF3a9qPK-Gz4JJHl1KCJEfKOHb_H2rzj1LAD4xiGOlDTqYxIpCaZV2-lkvLUeYmTEz1SPcivIMOX",
+      },
+    },
+    heroImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDSh_Rzc0xfXwSal4kyxfqCH5pluvY6VFWKX0jDKCNDx9WoWD26_s64enAH4tQIOY1nYwoURhEcTdiuZXoi1ZcoHWlSTlnShlwtG17paxqyR2tz9w2T36GBrNpRQR0GoqgdpWRdr845e6Nx_gGWqKgF1yeX70EuEjgn6_PtmyF280m5AmcPYyI0ae6tei7lNIFbHF3a9qPK-Gz4JJHl1KCJEfKOHb_H2rzj1LAD4xiGOlDTqYxIpCaZV2-lkvLUeYmTEz1SPcivIMOX",
+      },
+    },
+  },
+];
+
+export const mockDevelopments: Development[] = [
+  {
+    _id: "dev-1",
+    _type: "development",
+    name: "The Obsidian Estates",
+    slug: { current: "obsidian-estates" },
+    status: "selling",
+    location: "Ikoyi, Lagos",
+    overview: createPortableText(
+      "Obsidian Estates is a collection of 5 ultra-private waterfront villas featuring monolithic black concrete frames and structural glass screens. Positioned in the heart of Ikoyi, this development merges absolute privacy with state-of-the-art automation and private docks."
+    ),
+    features: [
+      "Waterfront infinity-edge pool loops",
+      "Private boat docks & yacht slots",
+      "100% smart-home automation & clean solar backups",
+      "Bullet-resistant reinforcement cores",
+    ],
+    gallery: [
+      {
+        asset: {
+          url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+        },
+      },
+    ],
+    inquiryFormEnabled: true,
+  },
+];
+
+export const mockTeamMembers: TeamMember[] = [
+  {
+    _id: "team-1",
+    name: "Alistair Vance",
+    position: "Founder & Design Principal",
+    photo: {
+      asset: {
+        url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      },
+    },
+    biography: "Alistair Vance has spent over two decades crafting award-winning residential structures globally, fusing structural physics with luxury editorial concepts.",
+    linkedIn: "https://linkedin.com",
+    email: "alistair@rivendell.ng",
+    displayOrder: 1,
+  },
+  {
+    _id: "team-2",
+    name: "Elena Rostova",
+    position: "Director of Construction",
+    photo: {
+      asset: {
+        url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      },
+    },
+    biography: "Elena oversees structural execution, partner logistics, and construction operations, ensuring the blueprint becomes a flawless, built legacy.",
+    linkedIn: "https://linkedin.com",
+    email: "elena@rivendell.ng",
+    displayOrder: 2,
+  },
+];
+
+export const mockTestimonials: Testimonial[] = [
+  {
+    _id: "test-1",
+    name: "Julian Sterling",
+    position: "Private Estate Owner",
+    company: "Sterling Holdings",
+    testimonial:
+      "The attention to detail displayed by Rivendell is unparalleled. They didn't just build a home; they crafted a legacy for my family that breathes with life and architectural intelligence.",
+    featured: true,
+    displayOrder: 1,
+  },
+  {
+    _id: "test-2",
+    name: "Elena Vance",
+    position: "Senior Developer",
+    company: "Vance Developments",
+    testimonial:
+      "Rivendell's ability to navigate complex urban developments while maintaining a pure architectural vision is why they remain our primary choice for luxury construction.",
+    featured: true,
+    displayOrder: 2,
+  },
+];
+
+export const mockGalleryAlbums: GalleryAlbum[] = [
+  {
+    _id: "album-1",
+    name: "Obsidian Structural Framing",
+    slug: { current: "obsidian-framing" },
+    category: "architecture",
+    coverImage: {
+      asset: {
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      },
+    },
+    description: "Framing sequences and raw concrete pours of our signature designs.",
+    items: [
+      {
+        type: "image",
+        caption: "Obsidian villa front frame in raw state",
+        image: {
+          asset: {
+            url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+          },
+        },
+      },
+    ],
+    featured: true,
+    displayOrder: 1,
+  },
+];
+
+export const mockCareers: Career[] = [
+  {
+    _id: "job-1",
+    title: "Senior Architect",
+    slug: { current: "senior-architect" },
+    department: "architecture",
+    location: "Lagos Office",
+    type: "full-time",
+    description: createPortableText(
+      "We are seeking a high-caliber Senior Architect to lead luxury residential and commercial conceptual planning. The ideal candidate will have 8+ years experience designing premium minimalist structures."
+    ),
+    requirements: [
+      "Masters in Architecture or equivalent structural background",
+      "Portfolio demonstrating premium, editorial design sensibilities",
+      "Proficient in AutoCAD, Revit, and Rhino rendering environments",
+    ],
+    benefits: [
+      "Industry-leading remuneration package",
+      "Comprehensive medical and health insurance coverage",
+      "Annual study travels to global design biennials",
+    ],
+    active: true,
+  },
+];
+
+export const mockHomepageData: HomepageData = {
+  hero: {
+    heroLabel: "Building Legacies",
+    heroHeading: "Building Legacies Through Design",
+    heroSubheading:
+      "Rivendell Consults delivers exceptional architecture, construction, and real estate developments through innovation, precision, and craftsmanship.",
+    primaryCtaText: "Explore Projects",
+    primaryCtaLink: "/projects",
+    secondaryCtaText: "Book Consultation",
+    secondaryCtaLink: "/contact",
+    heroBackgroundVideo:
+      "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054f4d9b3e00b3e64841e17d6928e18&profile_id=165&oauth2_token_id=57447761",
+    heroPosterImage: mockProjects[0].featuredImage,
+    overlayStrength: 40,
+  },
+  stats: [
+    { value: "20", suffix: "+", label: "Years Experience" },
+    { value: "100", suffix: "+", label: "Projects Completed" },
+    { value: "50", suffix: "+", label: "Clients Served" },
+  ],
+  aboutEyebrow: "ESTABLISHED",
+  aboutHeading: "Crafting Space with Intention",
+  aboutDescription:
+    "At Rivendell Consults, we believe that luxury is found in the meticulous details. Our approach blends architectural precision with an ethereal aesthetic, creating spaces that are not just structures, but lasting legacies.",
+  aboutCtaText: "Our Story",
+  aboutCtaLink: "/about",
+  aboutImage1: {
+    asset: {
+      url: "https://lh3.googleusercontent.com/aida-public/AB6AXuAINeFA-sCMvI_x1nuHABNOg6SqP_3Kye3ZGU-jBrfJzwfaTDF29b9H4OuDoi1e7IeKyFASkqnklFk5P12zjGngUTgfxwSyIA-1cwH25mtf2i3Tf-R7W7Ya33owTSqmS7P5JoTJnouVdKU36VqGpO4yKqSAycbjN9tHLbHCWkiwbMDaYwxOJA8T0LO4mMeGb94v5VA2Z4gMyX07q9yuAe8ipwUpGh--aJjAGhTD7ttfJW_xoBS2f2KjN9Pp2a_KQI-jwIg205WqnHgk",
+    },
+  },
+  aboutImage2: {
+    asset: {
+      url: "https://lh3.googleusercontent.com/aida-public/AB6AXuD3HvNWxYOvNpmrKFv0tT9ZtzcXy3I-OVfFSk-hi-DqfaE7m1a9M7j_Hp6WAzNL5gA4dI9bnjEw8-oTV6kpilkMOA3WEi1U0d5VQE-bDH8174jdLDZ1NOPo9XKxq22dQuvKFzuvVfF6fzjtUEUFYRPSpoWXd3ezIaRZhZK-lVnenbIohamnBMM9wEPd1jEldnKj7761Fh1SaAkTF2t9EFVg9IAR5WG79gTjQU2k90evQI_rr4Eu4eHbdW_x_67I9O5fSqSdDbW0DGgV",
+    },
+  },
+  servicesEyebrow: "ECOSYSTEM OF EXCELLENCE",
+  servicesHeading: "Our Divisions",
+  featuredServices: mockServices,
+  projectsEyebrow: "THE PORTFOLIO",
+  projectsHeading: "Signature Projects",
+  projectsCtaText: "View Archive",
+  featuredProjects: mockProjects,
+  divisionsEyebrow: "ECOSYSTEM OF EXCELLENCE",
+  divisionsHeading: "Our Divisions",
+  divisionsList: [
+    {
+      title: "Architecture",
+      description: "Visionary designs that balance form and function, tailored to the unique narrative of each landscape and client.",
+      icon: "architecture",
+      link: "/services/architecture",
+      features: ["CONCEPTUAL PLANNING", "SUSTAINABLE DESIGN", "INTERIOR MASTERY"],
+    },
+    {
+      title: "Construction",
+      description: "Precision engineering and master craftsmanship transform blueprints into enduring physical realities of the highest caliber.",
+      icon: "foundation",
+      link: "/services/construction",
+      features: ["GENERAL CONTRACTING", "SITE MANAGEMENT", "QUALITY ASSURANCE"],
+    },
+    {
+      title: "Real Estate",
+      description: "Strategic development and portfolio management focused on long-term value creation in the luxury property market.",
+      icon: "domain",
+      link: "/developments",
+      features: ["LAND ACQUISITION", "MARKET ANALYSIS", "ASSET MANAGEMENT"],
+    },
+  ],
+  testimonialsHeading: "Voices of Prestige",
+  featuredTestimonials: mockTestimonials,
+  sectionCta: {
+    ctaHeading: "Let's Build Something Extraordinary",
+    ctaDescription: "Your legacy deserves the precision and dedication of Rivendell Consults. Connect with our principal consultants today.",
+    ctaButtonText: "Book Consultation",
+    ctaButtonLink: "/contact",
+    ctaBackgroundImage: {
+      asset: {
+        url: "https://lh3.googleusercontent.com/aida-public/AB6AXuASuv0TBtpnAieebk_bSimvo3cg9Mum5n67rJpHcitCRtGoaMPwQw8RhMf-BrESLXgZig-oNG_htsae0xFDVgoedUn_F-7NXki832nyQv5BFEmDSGK0CZ-LnX5bfOqjUulx0zMegIyWfCMgcGyagfy7Cdy8Ggq1OfNsz0dSNZYEkbWbiVkwibrYp7Yn3xpuMcrXUQOM8UROH2McIQHuZSo4zwLGgWXnFqWurMgalfInF37Bl5-VcUF77t50cmh5kYgCIjHLbEetRSu1",
+      },
+    },
+  },
+};
