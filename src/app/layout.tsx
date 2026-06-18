@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${playfair.variable} ${manrope.variable}`} style={{ colorScheme: "dark" }}>
+    <html lang="en" className={`light ${playfair.variable} ${manrope.variable}`} style={{ colorScheme: "light" }}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -72,13 +72,14 @@ export default function RootLayout({
               (function() {
                 try {
                   const savedTheme = localStorage.getItem('theme');
-                  if (savedTheme === 'light') {
+                  if (savedTheme === 'dark') {
+                    document.documentElement.classList.remove('light');
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.style.colorScheme = 'dark';
+                  } else {
                     document.documentElement.classList.remove('dark');
                     document.documentElement.classList.add('light');
                     document.documentElement.style.colorScheme = 'light';
-                  } else {
-                    document.documentElement.classList.add('dark');
-                    document.documentElement.style.colorScheme = 'dark';
                   }
                 } catch (e) {}
               })()
