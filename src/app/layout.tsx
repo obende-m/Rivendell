@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`light ${playfair.variable} ${manrope.variable}`} style={{ colorScheme: "light" }}>
+    <html lang="en" className={`light ${playfair.variable} ${manrope.variable}`} style={{ colorScheme: "light" }} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

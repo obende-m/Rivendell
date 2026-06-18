@@ -1,8 +1,9 @@
 "use client";
 
 import { Testimonial } from "@/lib/sanity/types";
+import { motion } from "framer-motion";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
-import { StaggerChildren } from "@/components/animations/StaggerChildren";
+import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
 import { VerticalLine } from "@/components/ui/VerticalLine";
 
 interface TestimonialsSectionProps {
@@ -57,8 +58,9 @@ export function TestimonialsSection({
           {/* Right Quotes list */}
           <StaggerChildren className="space-y-16 md:space-y-24">
             {list.map((t) => (
-              <div
+              <motion.div
                 key={t._id}
+                variants={staggerItemVariants}
                 className="relative pl-8 md:pl-12 border-l border-gold-muted/40 py-2"
               >
                 <p className="font-display-lg text-2xl md:text-3xl italic text-on-surface leading-relaxed mb-6 select-none">
@@ -72,7 +74,7 @@ export function TestimonialsSection({
                     </span>
                   )}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </StaggerChildren>
         </div>

@@ -72,33 +72,38 @@ export function ContactForm() {
             <label className="font-label-caps text-label-caps text-on-surface-variant">
               INTERESTED SERVICE
             </label>
-            <select
-              value={formData.service}
-              onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-              className="w-full bg-transparent p-3 input-underline text-on-surface font-body-md appearance-none cursor-pointer"
-            >
-              <option className="bg-surface text-on-surface" value="Architectural Design">
-                Architectural Design
-              </option>
-              <option
-                className="bg-surface text-on-surface"
-                value="Construction Management"
+            <div className="relative w-full">
+              <select
+                value={formData.service}
+                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                className="w-full bg-transparent p-3 input-underline text-on-surface font-body-md appearance-none cursor-pointer pr-10"
               >
-                Construction Management
-              </option>
-              <option
-                className="bg-surface text-on-surface"
-                value="Real Estate Investment"
-              >
-                Real Estate Investment
-              </option>
-              <option className="bg-surface text-on-surface" value="Legal Consulting">
-                Legal Consulting
-              </option>
-              <option className="bg-surface text-on-surface" value="Other Enquiries">
-                Other Enquiries
-              </option>
-            </select>
+                <option className="bg-surface text-on-surface" value="Architectural Design">
+                  Architectural Design
+                </option>
+                <option
+                  className="bg-surface text-on-surface"
+                  value="Construction Management"
+                >
+                  Construction Management
+                </option>
+                <option
+                  className="bg-surface text-on-surface"
+                  value="Real Estate Investment"
+                >
+                  Real Estate Investment
+                </option>
+                <option className="bg-surface text-on-surface" value="Legal Consulting">
+                  Legal Consulting
+                </option>
+                <option className="bg-surface text-on-surface" value="Other Enquiries">
+                  Other Enquiries
+                </option>
+              </select>
+              <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 flex items-center text-primary">
+                <span className="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-2 flex flex-col">

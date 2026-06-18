@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { motion } from "framer-motion";
 import { getGalleryAlbums } from "@/lib/sanity/queries";
 import { GalleryAlbum, GalleryItem } from "@/lib/sanity/types";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
-import { StaggerChildren } from "@/components/animations/StaggerChildren";
+import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
 import { cn } from "@/lib/utils";
 
 const FILTERS = ["ALL", "ARCHITECTURE", "INTERIOR", "CONSTRUCTION", "REAL ESTATE"];
@@ -109,9 +110,10 @@ export default function GalleryPage() {
         {filteredPhotos.length > 0 ? (
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
             {filteredPhotos.map((photo, idx) => (
-              <div
+              <motion.div
                 key={photo.src + idx}
                 onClick={() => openLightbox(idx)}
+                variants={staggerItemVariants}
                 className="group relative aspect-[4/3] overflow-hidden ghost-border p-1 bg-surface-container cursor-pointer"
               >
                 <div className="w-full h-full overflow-hidden relative">
@@ -131,7 +133,7 @@ export default function GalleryPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </StaggerChildren>
         ) : (

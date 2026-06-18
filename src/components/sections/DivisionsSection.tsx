@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
-import { StaggerChildren } from "@/components/animations/StaggerChildren";
+import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
 
 interface DivisionItem {
   title: string;
@@ -66,8 +67,9 @@ export function DivisionsSection({
         {/* Divisions Cards Stagger */}
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {divisionsList.map((div) => (
-            <div
+            <motion.div
               key={div.title}
+              variants={staggerItemVariants}
               className="bg-surface-container group p-10 md:p-12 relative overflow-hidden transition-all duration-700 hover:bg-surface-container-high border border-transparent hover:border-gold-muted/20 select-none flex flex-col justify-between min-h-[440px]"
             >
               {/* Floating Icon Top Right */}
@@ -108,7 +110,7 @@ export function DivisionsSection({
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </StaggerChildren>
       </div>

@@ -159,7 +159,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Row */}
-      <div className="border-t border-white/5 py-8">
+      <div className="border-t border-gold-muted/10 py-8">
         <div className="section-container max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body-md text-[10px] tracking-widest text-on-surface-variant uppercase">
             {copyright}

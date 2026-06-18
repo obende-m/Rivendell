@@ -40,6 +40,7 @@ export function Navbar() {
   const menuItems = navData?.mainMenu || [];
   const cta = navData?.ctaButton || { text: "Book Consultation", href: "/contact" };
   const logoUrl = settings?.logo?.asset?.url || settings?.logoDark?.asset?.url;
+  const isHomepage = pathname === "/";
 
   return (
     <>
@@ -62,7 +63,10 @@ export function Navbar() {
                 src={logoUrl}
               />
             ) : (
-              <span className="font-playfair text-2xl tracking-[0.1em] text-primary font-bold">
+              <span className={cn(
+                "font-playfair text-2xl tracking-[0.1em] font-bold transition-all duration-300",
+                scrolled ? "text-primary" : isHomepage ? "text-white" : "text-primary"
+              )}>
                 RIVENDELL
               </span>
             )}
@@ -82,7 +86,15 @@ export function Navbar() {
                   className={cn(
                     "font-label-caps text-label-caps tracking-[0.15em] transition-all duration-300 pb-1 relative",
                     isActive
-                      ? "text-primary border-b border-primary/40"
+                      ? scrolled
+                        ? "text-primary border-b border-primary/40"
+                        : isHomepage
+                        ? "text-white border-b border-white/40"
+                        : "text-primary border-b border-primary/40"
+                      : scrolled
+                      ? "text-on-surface/85 hover:text-primary editorial-hover-line"
+                      : isHomepage
+                      ? "text-white/85 hover:text-white editorial-hover-line"
                       : "text-on-surface/85 hover:text-primary editorial-hover-line"
                   )}
                 >
@@ -105,7 +117,14 @@ export function Navbar() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="md:hidden flex flex-col items-center justify-center w-10 h-10 border border-gold-muted/30 text-on-surface hover:bg-primary/10 transition-colors"
+              className={cn(
+                "md:hidden flex flex-col items-center justify-center w-10 h-10 border transition-all duration-300",
+                scrolled
+                  ? "border-gold-muted/30 text-on-surface hover:bg-primary/10"
+                  : isHomepage
+                  ? "border-white/20 text-white hover:bg-white/10"
+                  : "border-gold-muted/30 text-on-surface hover:bg-primary/10"
+              )}
               aria-label="Toggle mobile menu"
             >
               <span className="material-symbols-outlined text-2xl">menu</span>

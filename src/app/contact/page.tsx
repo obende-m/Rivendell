@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
-import { ImageReveal } from "@/components/animations/ImageReveal";
-import { StaggerChildren } from "@/components/animations/StaggerChildren";
+import { ContactStats } from "@/components/sections/ContactStats";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -190,24 +189,7 @@ export default function ContactPage() {
                 Global <span className="italic text-primary">Insight,</span> Local Mastery.
               </h4>
             </RevealOnScroll>
-            <StaggerChildren className="grid grid-cols-2 gap-12 md:gap-20">
-              <div>
-                <span className="font-display-lg text-5xl md:text-6xl text-primary block mb-2 select-none">
-                  15+
-                </span>
-                <span className="font-label-caps text-[9px] tracking-wider text-on-surface-variant/80 uppercase">
-                  YEARS OF PRECISION
-                </span>
-              </div>
-              <div>
-                <span className="font-display-lg text-5xl md:text-6xl text-primary block mb-2 select-none">
-                  200+
-                </span>
-                <span className="font-label-caps text-[9px] tracking-wider text-on-surface-variant/80 uppercase">
-                  PROJECTS COMPLETED
-                </span>
-              </div>
-            </StaggerChildren>
+            <ContactStats />
           </div>
         </div>
       </section>

@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { getProjects } from "@/lib/sanity/queries";
 import { Project } from "@/lib/sanity/types";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
-import { StaggerChildren } from "@/components/animations/StaggerChildren";
+import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
 import { cn } from "@/lib/utils";
 
 const CATEGORIES = ["ALL", "RESIDENTIAL", "COMMERCIAL", "ARCHITECTURE", "CONSTRUCTION", "MIXED USE"];
@@ -123,8 +124,9 @@ export default function ProjectsPage() {
                 "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80";
 
               return (
-                <div
+                <motion.div
                   key={p._id}
+                  variants={staggerItemVariants}
                   className={cn(
                     "group project-card overflow-hidden relative fade-up border border-gold-muted/5 p-1 bg-surface-container",
                     colSpan,
@@ -157,7 +159,7 @@ export default function ProjectsPage() {
                       </Link>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </StaggerChildren>

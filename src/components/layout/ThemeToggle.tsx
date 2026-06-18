@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const isDark = document.documentElement.classList.contains("dark");
     setTheme(isDark ? "dark" : "light");
   }, []);
@@ -25,6 +27,17 @@ export function ThemeToggle() {
       setTheme("dark");
     }
   };
+
+  if (!mounted) {
+    return (
+      <div 
+        className="w-10 h-10 border border-gold-muted/30 rounded-full flex items-center justify-center text-transparent select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        <span className="material-symbols-outlined text-lg opacity-0">dark_mode</span>
+      </div>
+    );
+  }
 
   return (
     <button

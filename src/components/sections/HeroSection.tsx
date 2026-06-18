@@ -73,7 +73,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display-xl text-[44px] sm:text-[64px] md:text-display-xl text-on-surface leading-[1.1] mb-8"
+            className="font-display-xl text-[44px] sm:text-[64px] md:text-display-xl text-[#FAF9F6] leading-[1.1] mb-8"
           >
             {heading.includes("Through Design") ? (
               <>
@@ -90,7 +90,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12"
+            className="font-body-lg text-body-lg text-[#EAE8E2]/80 max-w-2xl mb-12"
           >
             {subheading}
           </motion.p>
@@ -106,7 +106,9 @@ export function HeroSection({ data }: HeroSectionProps) {
               <Button variant="primary">{primaryText}</Button>
             </Link>
             <Link href={secondaryLink}>
-              <Button variant="outline">{secondaryText}</Button>
+              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white/60">
+                {secondaryText}
+              </Button>
             </Link>
           </motion.div>
         </div>
