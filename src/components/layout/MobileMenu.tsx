@@ -12,9 +12,10 @@ interface MobileMenuProps {
   menuItems: NavItem[];
   cta: { text: string; href: string };
   siteName?: string;
+  logoUrl?: string;
 }
 
-export function MobileMenu({ onClose, menuItems, cta }: MobileMenuProps) {
+export function MobileMenu({ onClose, menuItems, cta, logoUrl }: MobileMenuProps) {
   const pathname = usePathname();
 
   // Framer Motion presets
@@ -52,9 +53,18 @@ export function MobileMenu({ onClose, menuItems, cta }: MobileMenuProps) {
     >
       {/* Top Header Row */}
       <div className="flex justify-between items-center w-full max-w-[1440px] mx-auto">
-        <span className="font-playfair text-xl tracking-[0.1em] text-primary font-bold">
-          RIVENDELL
-        </span>
+        {logoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            alt="Rivendell Consults Logo"
+            className="h-8 w-auto object-contain"
+            src={logoUrl}
+          />
+        ) : (
+          <span className="font-playfair text-xl tracking-[0.1em] text-primary font-bold">
+            RIVENDELL
+          </span>
+        )}
         <button
           onClick={onClose}
           className="flex items-center justify-center w-10 h-10 border border-gold-muted/30 text-on-surface hover:bg-primary/10 transition-colors"

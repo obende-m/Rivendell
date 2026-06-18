@@ -142,6 +142,7 @@ export function Navbar() {
             menuItems={menuItems}
             cta={cta}
             siteName={settings?.siteName}
+            logoUrl={logoUrl}
           />
         )}
       </AnimatePresence>
