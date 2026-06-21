@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
@@ -21,6 +22,14 @@ export function ServicesGrid({
   heading = "Expertise Defined",
   capabilities,
 }: ServicesGridProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   const capabilityList = capabilities || [
     {
       title: "Project Design",
@@ -75,13 +84,21 @@ export function ServicesGrid({
  
         {/* Bento/Capability 3x2 Grid with thin overlapping border lines */}
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gold-muted/20 border border-gold-muted/20">
-          {capabilityList.map((cap) => (
+          {capabilityList.map((cap, index) => (
             <motion.div
               key={cap.title}
               variants={staggerItemVariants}
               whileHover={{ y: -6, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="bg-background p-6 sm:p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 border border-transparent hover:border-gold-muted/10 hover:shadow-2xl hover:shadow-primary/5 group select-none flex flex-col justify-start min-h-[300px]"
+              style={
+                isMobile
+                  ? {
+                      top: `${88 + index * 24}px`,
+                      zIndex: index + 10,
+                    }
+                  : {}
+              }
+              className="bg-background p-6 sm:p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 border border-transparent hover:border-gold-muted/10 hover:shadow-2xl hover:shadow-primary/5 group select-none flex flex-col justify-start min-h-[300px] sticky md:relative"
             >
               <span className="material-symbols-outlined text-3xl text-primary mb-8 block transition-transform group-hover:scale-110 duration-300">
                 {cap.icon}
