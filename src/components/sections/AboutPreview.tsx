@@ -32,7 +32,7 @@ export function AboutPreview({
     "https://lh3.googleusercontent.com/aida-public/AB6AXuD3HvNWxYOvNpmrKFv0tT9ZtzcXy3I-OVfFSk-hi-DqfaE7m1a9M7j_Hp6WAzNL5gA4dI9bnjEw8-oTV6kpilkMOA3WEi1U0d5VQE-bDH8174jdLDZ1NOPo9XKxq22dQuvKFzuvVfF6fzjtUEUFYRPSpoWXd3ezIaRZhZK-lVnenbIohamnBMM9wEPd1jEldnKj7761Fh1SaAkTF2t9EFVg9IAR5WG79gTjQU2k90evQI_rr4Eu4eHbdW_x_67I9O5fSqSdDbW0DGgV";
 
   return (
-    <section className="py-20 md:py-32 bg-surface-container-low px-grid-margin overflow-hidden relative">
+    <section className="py-20 md:py-32 bg-surface-container-low px-6 md:px-12 lg:px-16 overflow-hidden relative">
       {/* Decorative Est background text */}
       <div className="absolute top-12 left-12 font-display-xl text-[120px] md:text-[200px] text-on-surface/[0.02] pointer-events-none select-none">
         Est.

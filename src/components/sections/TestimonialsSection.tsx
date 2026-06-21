@@ -37,7 +37,7 @@ export function TestimonialsSection({
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-surface-container px-grid-margin relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-surface-container px-6 md:px-12 lg:px-16 relative overflow-hidden">
       <div className="section-container max-w-[1440px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
           {/* Left Heading */}
@@ -54,14 +54,14 @@ export function TestimonialsSection({
             </h2>
             <VerticalLine tall className="hidden lg:block" />
           </RevealOnScroll>
-
+ 
           {/* Right Quotes list */}
           <StaggerChildren className="space-y-16 md:space-y-24">
             {list.map((t) => (
               <motion.div
                 key={t._id}
                 variants={staggerItemVariants}
-                className="relative pl-8 md:pl-12 border-l border-gold-muted/40 py-2"
+                className="relative pl-6 md:pl-12 border-l border-gold-muted/40 py-2"
               >
                 <p className="font-display-lg text-2xl md:text-3xl italic text-on-surface leading-relaxed mb-6 select-none">
                   &ldquo;{t.testimonial}&rdquo;

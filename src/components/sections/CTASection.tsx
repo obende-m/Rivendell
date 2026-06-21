@@ -21,7 +21,7 @@ export function CTASection({ data }: CTASectionProps) {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuASuv0TBtpnAieebk_bSimvo3cg9Mum5n67rJpHcitCRtGoaMPwQw8RhMf-BrESLXgZig-oNG_htsae0xFDVgoedUn_F-7NXki832nyQv5BFEmDSGK0CZ-LnX5bfOqjUulx0zMegIyWfCMgcGyagfy7Cdy8Ggq1OfNsz0dSNZYEkbWbiVkwibrYp7Yn3xpuMcrXUQOM8UROH2McIQHuZSo4zwLGgWXnFqWurMgalfInF37Bl5-VcUF77t50cmh5kYgCIjHLbEetRSu1";
 
   return (
-    <section className="relative py-24 md:py-36 px-grid-margin overflow-hidden text-center bg-background border-t border-gold-muted/10">
+    <section className="relative py-24 md:py-36 px-6 md:px-12 lg:px-16 overflow-hidden text-center bg-background border-t border-gold-muted/10">
       {/* Background Image Parallax frame */}
       <div className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}

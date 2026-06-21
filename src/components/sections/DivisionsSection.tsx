@@ -52,7 +52,7 @@ export function DivisionsSection({
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-background px-grid-margin border-b border-gold-muted/10">
+    <section className="py-20 md:py-32 bg-background px-6 md:px-12 lg:px-16 border-b border-gold-muted/10">
       <div className="section-container max-w-[1440px] mx-auto">
         {/* Section Title */}
         <RevealOnScroll className="text-center mb-16 md:mb-24" y={15}>
@@ -63,14 +63,14 @@ export function DivisionsSection({
             {heading}
           </h2>
         </RevealOnScroll>
-
+ 
         {/* Divisions Cards Stagger */}
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {divisionsList.map((div) => (
             <motion.div
               key={div.title}
               variants={staggerItemVariants}
-              className="bg-surface-container group p-10 md:p-12 relative overflow-hidden transition-all duration-700 hover:bg-surface-container-high border border-transparent hover:border-gold-muted/20 select-none flex flex-col justify-between min-h-[440px]"
+              className="bg-surface-container group p-6 sm:p-10 md:p-12 relative overflow-hidden transition-all duration-700 hover:bg-surface-container-high border border-transparent hover:border-gold-muted/20 select-none flex flex-col justify-between min-h-[440px]"
             >
               {/* Floating Icon Top Right */}
               <div className="absolute top-0 right-0 p-8">

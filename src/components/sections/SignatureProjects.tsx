@@ -22,7 +22,7 @@ export function SignatureProjects({
   const projectList = projects?.slice(0, 2) || [];
 
   return (
-    <section className="py-20 md:py-32 bg-surface-container-lowest px-grid-margin">
+    <section className="py-20 md:py-32 bg-surface-container-lowest px-6 md:px-12 lg:px-16">
       <div className="section-container max-w-[1440px] mx-auto">
         {/* Title row */}
         <RevealOnScroll

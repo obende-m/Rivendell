@@ -61,7 +61,7 @@ export function ServicesGrid({
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-background px-grid-margin border-b border-gold-muted/10">
+    <section className="py-20 md:py-32 bg-background px-6 md:px-12 lg:px-16 border-b border-gold-muted/10">
       <div className="section-container max-w-[1440px] mx-auto">
         {/* Section Header */}
         <RevealOnScroll className="text-center mb-16 md:mb-24" y={15}>
@@ -72,14 +72,14 @@ export function ServicesGrid({
             {heading}
           </h2>
         </RevealOnScroll>
-
+ 
         {/* Bento/Capability 3x2 Grid with thin overlapping border lines */}
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gold-muted/20 border border-gold-muted/20">
           {capabilityList.map((cap) => (
             <motion.div
               key={cap.title}
               variants={staggerItemVariants}
-              className="bg-background p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 group select-none flex flex-col justify-start min-h-[300px]"
+              className="bg-background p-6 sm:p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 group select-none flex flex-col justify-start min-h-[300px]"
             >
               <span className="material-symbols-outlined text-3xl text-primary mb-8 block transition-transform group-hover:scale-110 duration-300">
                 {cap.icon}

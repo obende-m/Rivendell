@@ -78,7 +78,7 @@ export default function DevelopmentsPage() {
       </header>
 
       {/* Bento Grid Developments */}
-      <section className="py-20 md:py-32 max-w-[1440px] mx-auto px-grid-margin" id="masterpieces">
+      <section className="py-20 md:py-32 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16" id="masterpieces">
         <RevealOnScroll
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8"
           y={15}
