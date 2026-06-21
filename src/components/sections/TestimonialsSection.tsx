@@ -131,6 +131,84 @@ export function TestimonialsSection({
           url: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80"
         }
       }
+    },
+    {
+      _id: "test-10",
+      name: "Aisha Bello",
+      position: "Interior Stylist",
+      company: "Bello Interiors",
+      testimonial: "The custom woodwork and marble detailing Rivendell executed for our penthouse projects is unmatched. Their attention to tolerances is a designer's dream.",
+      rating: 5,
+      photo: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      _id: "test-11",
+      name: "Christian Sterling",
+      position: "Managing Partner",
+      company: "Sterling Capital",
+      testimonial: "Investing in Rivendell developments has consistently yielded outstanding returns. Their project management division is transparent, professional, and precise.",
+      rating: 5,
+      photo: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      _id: "test-12",
+      name: "Nnamdi Azikiwe",
+      position: "Owner",
+      company: "The Glass Pavilion",
+      testimonial: "They delivered a cantilevered structural glass masterpiece that suspended beautifully over the hillside. Truly a remarkable engineering feat.",
+      rating: 5,
+      photo: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      _id: "test-13",
+      name: "Zainab Yusuf",
+      position: "Director",
+      company: "Eko Tech Hub",
+      testimonial: "Rivendell transformed our open-plan offices into a hybrid workspace that boosts collaboration. Their lighting design and acoustic modeling are top-tier.",
+      rating: 5,
+      photo: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      _id: "test-14",
+      name: "David Kojo",
+      position: "Founder",
+      company: "Accra Horizons",
+      testimonial: "Their team handled the complex zoning permits, geotechnical surveys, and heavy foundation works seamlessly. Extremely reliable structural partners.",
+      rating: 5,
+      photo: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      _id: "test-15",
+      name: "Elena Rostova",
+      position: "Art Collector",
+      company: "The Vault Gallery",
+      testimonial: "The minimalist concrete gallery space they built for us features breathtaking light wells and floating partitions. An absolute masterpiece.",
+      rating: 5,
+      photo: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
     }
   ] as Testimonial[]);
 
