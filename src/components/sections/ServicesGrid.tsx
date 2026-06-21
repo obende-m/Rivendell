@@ -93,7 +93,7 @@ export function ServicesGrid({
               style={
                 isMobile
                   ? {
-                      top: `${88 + index * 24}px`,
+                      top: `${80 + index * 48}px`,
                       zIndex: index + 10,
                     }
                   : {}
