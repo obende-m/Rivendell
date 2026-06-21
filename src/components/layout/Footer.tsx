@@ -43,9 +43,9 @@ export function Footer() {
 
   return (
     <footer className="bg-surface-container border-t border-gold-muted/10">
-      <div className="section-container grid grid-cols-1 md:grid-cols-4 gap-gutter py-16 md:py-24 max-w-[1440px] mx-auto">
-        {/* Column 1: Logo & Description */}
-        <div className="md:col-span-1 space-y-6">
+      <div className="section-container grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-y-0 gap-gutter py-16 md:py-24 max-w-[1440px] mx-auto">
+        {/* Column 1: Logo & Description (Left-aligned) */}
+        <div className="space-y-6 text-left">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -62,7 +62,7 @@ export function Footer() {
             {description}
           </p>
           {/* Socials */}
-          <div className="flex space-x-3 pt-4">
+          <div className="flex space-x-3 pt-4 justify-start">
             {socialLinks.map((link) => (
               <a
                 key={link.platform}
@@ -78,18 +78,18 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Columns 2 & 3: Link grids */}
-        {columns.map((col) => (
-          <div key={col.heading}>
+        {/* Column 2: Our Services (Right-aligned on mobile, Left-aligned on desktop) */}
+        {columns[0] && (
+          <div className="text-right md:text-left">
             <h4 className="font-label-caps text-label-caps text-primary mb-8 tracking-[0.2em] uppercase">
-              {col.heading}
+              {columns[0].heading}
             </h4>
             <ul className="space-y-4">
-              {col.links?.map((link) => (
+              {columns[0].links?.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="font-body-md text-on-surface-variant text-sm hover:text-primary transition-colors duration-300"
+                    className="font-body-md text-on-surface-variant text-sm hover:text-primary transition-colors duration-300 block"
                   >
                     {link.label}
                   </Link>
@@ -97,15 +97,36 @@ export function Footer() {
               ))}
             </ul>
           </div>
-        ))}
+        )}
 
-        {/* Column 4: Contact / Newsletter (dynamic) */}
-        <div>
-          <h4 className="font-label-caps text-label-caps text-primary mb-8 tracking-[0.2em] uppercase">
+        {/* Column 3: Company (Left-aligned on mobile & desktop) */}
+        {columns[1] && (
+          <div className="text-left">
+            <h4 className="font-label-caps text-label-caps text-primary mb-8 tracking-[0.2em] uppercase">
+              {columns[1].heading}
+            </h4>
+            <ul className="space-y-4">
+              {columns[1].links?.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="font-body-md text-on-surface-variant text-sm hover:text-primary transition-colors duration-300 block"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Column 4: Contact / Newsletter (Right-aligned on mobile, Left-aligned on desktop) */}
+        <div className="text-right md:text-left flex flex-col items-end md:items-start">
+          <h4 className="font-label-caps text-label-caps text-primary mb-8 tracking-[0.2em] uppercase w-full text-right md:text-left">
             Contact
           </h4>
           {primaryOffice ? (
-            <div className="space-y-4 text-sm font-body-md text-on-surface-variant leading-relaxed mb-6">
+            <div className="space-y-4 text-sm font-body-md text-on-surface-variant leading-relaxed mb-6 text-right md:text-left w-full">
               <p>
                 {primaryOffice.address.split(",").slice(0, 2).join(",")},
                 <br />
@@ -121,7 +142,7 @@ export function Footer() {
               </p>
             </div>
           ) : (
-            <p className="text-sm font-body-md text-on-surface-variant leading-relaxed mb-6">
+            <p className="text-sm font-body-md text-on-surface-variant leading-relaxed mb-6 text-right md:text-left w-full">
               1245 Architectural Row
               <br />
               Suite 400, Horizon District
@@ -131,11 +152,11 @@ export function Footer() {
           )}
 
           {/* Dynamic Newsletter input as styled in specifications */}
-          <form onSubmit={handleSubscribe} className="relative mt-8 max-w-[280px]">
-            <p className="font-label-caps text-[9px] text-primary/60 tracking-widest mb-3 uppercase">
+          <form onSubmit={handleSubscribe} className="relative mt-8 max-w-[280px] w-full text-right md:text-left flex flex-col items-end md:items-start">
+            <p className="font-label-caps text-[9px] text-primary/60 tracking-widest mb-3 uppercase w-full text-right md:text-left">
               INSIGHTS NEWSLETTER
             </p>
-            <div className="flex items-center border-b border-gold-muted/40 py-2">
+            <div className="flex items-center border-b border-gold-muted/40 py-2 w-full justify-end md:justify-start">
               <input
                 type="email"
                 value={email}
@@ -144,7 +165,7 @@ export function Footer() {
                   subscribed ? "Thank you for subscribing" : "Subscribe to updates"
                 }
                 disabled={subscribed}
-                className="appearance-none bg-transparent border-none w-full text-on-surface mr-3 py-1 px-2 leading-tight focus:outline-none placeholder:text-on-surface/40 text-xs font-body-md"
+                className="appearance-none bg-transparent border-none w-full text-on-surface mr-3 py-1 px-2 leading-tight focus:outline-none placeholder:text-on-surface/40 text-xs font-body-md text-right md:text-left"
               />
               <button
                 type="submit"

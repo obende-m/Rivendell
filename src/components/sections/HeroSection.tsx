@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { HeroFields } from "@/lib/sanity/types";
 import { Button } from "@/components/ui/Button";
-import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 interface HeroSectionProps {
   data?: HeroFields;
@@ -114,15 +113,7 @@ export function HeroSection({ data }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Floating Bottom Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
-      >
-        <ScrollIndicator />
-      </motion.div>
+
     </section>
   );
 }

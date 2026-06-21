@@ -1,7 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
-import { StaggerChildren } from "@/components/animations/StaggerChildren";
+import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
 
 interface CapabilityItem {
   title: string;
@@ -73,10 +74,11 @@ export function ServicesGrid({
         </RevealOnScroll>
 
         {/* Bento/Capability 3x2 Grid with thin overlapping border lines */}
-        <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gold-muted/20 border border-gold-muted/20">
+        <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gold-muted/20 border border-gold-muted/20">
           {capabilityList.map((cap) => (
-            <div
+            <motion.div
               key={cap.title}
+              variants={staggerItemVariants}
               className="bg-background p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 group select-none flex flex-col justify-start min-h-[300px]"
             >
               <span className="material-symbols-outlined text-3xl text-primary mb-8 block transition-transform group-hover:scale-110 duration-300">
@@ -88,7 +90,7 @@ export function ServicesGrid({
               <p className="font-body-md text-on-surface-variant/80 text-sm leading-relaxed">
                 {cap.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </StaggerChildren>
       </div>

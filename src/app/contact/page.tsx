@@ -67,10 +67,10 @@ export default function ContactPage() {
                       TELEPHONE
                     </p>
                     <p className="font-body-lg text-lg text-on-surface hover:text-primary transition-colors cursor-pointer leading-relaxed">
-                      +234 810 555 0123
+                      +234 808 988 5109
                     </p>
                     <p className="font-body-lg text-lg text-on-surface hover:text-primary transition-colors cursor-pointer leading-relaxed">
-                      +234 902 444 0987
+                      +234 810 884 9700
                     </p>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export default function ContactPage() {
               </h3>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://wa.me/2348105550123"
+                  href="https://wa.me/2348089885109"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-8 py-4 bg-[#25D366] text-white font-label-caps text-xs tracking-widest hover:brightness-105 transition-all select-none cursor-pointer"
@@ -135,7 +135,7 @@ export default function ContactPage() {
                   href="https://calendly.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-8 py-4 border border-on-surface/20 text-on-surface font-label-caps text-xs tracking-widest hover:border-primary hover:text-primary transition-all select-none cursor-pointer"
+                  className="flex items-center gap-3 px-8 py-4 border font-label-caps text-xs tracking-widest transition-all select-none cursor-pointer bg-[#EBF5FB] text-[#2874A6] border-[#AED6F1] hover:bg-[#D4E6F1] hover:text-[#1B4F72] hover:border-[#85C1E9] dark:bg-[#1B4F72]/30 dark:text-[#85C1E9] dark:border-[#2E86C1]/40 dark:hover:bg-[#1B4F72]/50 dark:hover:text-[#AED6F1] dark:hover:border-[#5DADE2]/50"
                 >
                   <span className="material-symbols-outlined text-sm">calendar_month</span>
                   SCHEDULE CALL
