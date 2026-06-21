@@ -58,23 +58,23 @@ export default async function ServicesPage() {
                 Architectural Design
               </h2>
               <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                We believe in architecture that transcends time. Our designs are born from a rigorous dialogue between context, materiality, and the human condition.
+                Innovative and bespoke designs tailored to your vision. We handle residential, commercial, and industrial commissions, bringing structural dreams to life with precision.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
                 <div className="border-l border-primary/50 pl-6 space-y-2">
                   <span className="font-label-caps text-label-caps text-primary block text-xs tracking-wider">
-                    01. PHILOSOPHY
+                    01. CONCEPT & VISION
                   </span>
                   <p className="text-on-surface-variant text-sm leading-relaxed">
-                    Contextual integration and structural honesty define our creative process.
+                    Conceptual Spatial Planning tailored precisely to your specific requirements and budget.
                   </p>
                 </div>
                 <div className="border-l border-primary/50 pl-6 space-y-2">
                   <span className="font-label-caps text-label-caps text-primary block text-xs tracking-wider">
-                    02. EXECUTION
+                    02. SECTORS DELIVERED
                   </span>
                   <p className="text-on-surface-variant text-sm leading-relaxed">
-                    State-of-the-art BIM modeling ensures every millimeter is accounted for.
+                    Advising on residential commission outlines, luxury estates, and authoritative commercial spaces.
                   </p>
                 </div>
               </div>
@@ -105,57 +105,76 @@ export default async function ServicesPage() {
             <div className="space-y-4 pt-8 mt-8 border-t border-gold-muted/10 font-body-md text-xs text-on-surface-variant/80">
               <div className="flex items-center gap-4">
                 <span className="material-symbols-outlined text-primary text-lg">verified</span>
-                <span>Chartered RIBA Practice since 2012</span>
+                <span>Over 20 Years of Craftsmanship & Excellence</span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="material-symbols-outlined text-primary text-lg">award_star</span>
-                <span>Winner: Urban Excellence Awards 2023</span>
+                <span className="material-symbols-outlined text-primary text-lg">construction</span>
+                <span>Tailored Construction & Architectural Solutions</span>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Division 2: Interior Curation */}
+      </section>      {/* Division 2: Construction Management */}
       <section className="bg-surface-container py-20 md:py-32 border-t border-gold-muted/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <RevealOnScroll className="lg:col-span-5 order-2 lg:order-1 space-y-6" y={15}>
+          <div className="lg:col-span-6">
+            <div className="grid grid-cols-2 gap-4">
+              <ImageReveal>
+                <div className="aspect-[3/4] overflow-hidden ghost-border p-1 bg-surface translate-y-8">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    alt="Precision joinery detail"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfnZhsL7BsA_dJemK4X1SkzvrwYCkstSs7aXjGgH1OmERaMgy9F0GcpOwS2w68cW4v2BXGzsAYouYIsdHEXbJUiko19hnD-PDD296IM5tIZzzfSIaKM0ZO0SjR-gAKwXaNk7IoeySxUqlm-SBOx-RrDcSS_ZPTUsAB4gw2IS2IOtQqmsRfJ90-6WOEWfTZZOaY4mFfNYU0GPKl1bJwTw68FKWBflzg29Bo2YkfXLaeLFc3asLjEZh3m88yY3FZzcQTq3FoT2wWNoK"
+                  />
+                </div>
+              </ImageReveal>
+              <ImageReveal>
+                <div className="aspect-[3/4] overflow-hidden ghost-border p-1 bg-surface">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    alt="Construction site sunset"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2bPQg-QJ4mWuBPEWo7bu_badsyir8_uSPlZpQXAR24W7rFi-TIhuTO5ebBqsg4UHWyMidn9u8tGnQjVNjyXCkAlawh054mYmzfzGq3giSw_F6lgj7zGEIpwwKhx05wE__m5fA0gkY9d0lsS-SN67lv0hoD8WPNksuXAYyltempvT3JkHpUYL6yDfPkBsVl_XlWHrOc2pl0khL6gbyDj8MY9rRdeGh56p2KGHqhZBBxO9lgBl5s9Sv-1YgxW95nI8XjR2bARlFZOuN"
+                  />
+                </div>
+              </ImageReveal>
+            </div>
+          </div>
+          <RevealOnScroll className="lg:col-span-5 lg:col-start-8 space-y-6" y={15} delay={0.15}>
             <span className="font-label-caps text-label-caps text-primary tracking-widest">
-              INTERIOR CURATION
+              CONSTRUCTION MANAGEMENT
             </span>
             <h2 className="font-display-lg text-3xl md:text-headline-lg text-on-surface leading-tight">
-              The Soul of the Space.
+              Construction Management
             </h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Interiors are where life happens. We curate bespoke environments that balance sensory richness with functional intelligence, sourcing rare materials from across the globe.
+              End-to-end project management, ensuring timely delivery and quality execution. Strict adherence to budgets and safety standards.
             </p>
-            <div className="space-y-4 pt-4">
-              <div className="flex items-center gap-6 border-b border-gold-muted/10 pb-4">
-                <span className="font-display-lg text-2xl text-gold-muted font-bold">01</span>
-                <span className="font-body-md text-on-surface">Material Selection & Procurement</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+              <div className="border-l border-primary/50 pl-6 space-y-2">
+                <span className="font-label-caps text-label-caps text-primary block text-xs tracking-wider">
+                  01. TIMELY DELIVERY
+                </span>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  End-to-end coordination ensuring all milestones are reached on schedule.
+                </p>
               </div>
-              <div className="flex items-center gap-6 border-b border-gold-muted/10 pb-4">
-                <span className="font-display-lg text-2xl text-gold-muted font-bold">02</span>
-                <span className="font-body-md text-on-surface">Bespoke Furniture Design</span>
-              </div>
-              <div className="flex items-center gap-6 border-b border-gold-muted/10 pb-4">
-                <span className="font-display-lg text-2xl text-gold-muted font-bold">03</span>
-                <span className="font-body-md text-on-surface">Lighting Orchestration</span>
+              <div className="border-l border-primary/50 pl-6 space-y-2">
+                <span className="font-label-caps text-label-caps text-primary block text-xs tracking-wider">
+                  02. SAFETY & BUDGET
+                </span>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  Adhering to strict safety protocols and financial plans.
+                </p>
               </div>
             </div>
+            <div className="pt-4">
+              <Link href="/services/construction">
+                <Button variant="ghost">EXPLORE CONSTRUCTION —</Button>
+              </Link>
+            </div>
           </RevealOnScroll>
-          <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2">
-            <ImageReveal>
-              <div className="aspect-[4/5] overflow-hidden ghost-border p-2 bg-surface">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  alt="Minimalist Interior curation"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuByGv2x4vVNzoJJeOIUmF9ZmSdNgZrkouh02v04PaRMoAp1kbyYIlxy6xZuGFxgWC_gbMFFZSfXymZsIbhxWnBfqiaJMgi87yC1PatwZZ9iUUwtl_eF5kC0QSrHLpvKLn1nxBMdWT5UTHvDPw4tQAvBhIHXdqdroF5F8cMW3oKRV20pT-ucHunaVNRVqlSneMurjTHDOLd0hY37TNZSjuq2YASI9NCjd-jlwj-gAhP9ZJ6fzpfhWBPP-zJLhIhrQ5jDhvn3cr8PQlIh"
-                />
-              </div>
-            </ImageReveal>
-          </div>
         </div>
       </section>
 
@@ -194,49 +213,127 @@ export default async function ServicesPage() {
         </div>
       </section>
 
-      {/* Division 3: Construction Management */}
+      {/* Division 3: Renovation & Remodeling */}
       <section className="bg-surface-container py-20 md:py-32 border-t border-gold-muted/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6">
-            <div className="grid grid-cols-2 gap-4">
-              <ImageReveal>
-                <div className="aspect-[3/4] overflow-hidden ghost-border p-1 bg-surface translate-y-8">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    alt="Precision joinery detail"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfnZhsL7BsA_dJemK4X1SkzvrwYCkstSs7aXjGgH1OmERaMgy9F0GcpOwS2w68cW4v2BXGzsAYouYIsdHEXbJUiko19hnD-PDD296IM5tIZzzfSIaKM0ZO0SjR-gAKwXaNk7IoeySxUqlm-SBOx-RrDcSS_ZPTUsAAB4gw2IS2IOtQqmsRfJ90-6WOEWfTZZOaY4mFfNYU0GPKl1bJwTw68FKWBflzg29Bo2YkfXLaeLFc3asLjEZh3m88yY3FZzcQTq3FoT2wWNoK"
-                  />
-                </div>
-              </ImageReveal>
-              <ImageReveal>
-                <div className="aspect-[3/4] overflow-hidden ghost-border p-1 bg-surface">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    alt="Construction site sunset"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2bPQg-QJ4mWuBPEWo7bu_badsyir8_uSPlZpQXAR24W7rFi-TIhuTO5ebBqsg4UHWyMidn9u8tGnQjVNjyXCkAlawh054mYmzfzGq3giSw_F6lgj7zGEIpwwKhx05wE__m5fA0gkY9d0lsS-SN67lv0hoD8WPNksuXAYyltempvT3JkHpUYL6yDfPkBsVl_XlWHrOc2pl0khL6gbyDj8MY9rRdeGh56p2KGHqhZBBxO9lgBl5s9Sv-1YgxW95nI8XjR2bARlFZOuN"
-                  />
-                </div>
-              </ImageReveal>
-            </div>
-          </div>
-          <RevealOnScroll className="lg:col-span-5 lg:col-start-8 space-y-6" y={15} delay={0.15}>
+          <RevealOnScroll className="lg:col-span-5 order-2 lg:order-1 space-y-6" y={15}>
             <span className="font-label-caps text-label-caps text-primary tracking-widest">
-              CONSTRUCTION MANAGEMENT
+              RENOVATION & REMODELING
             </span>
             <h2 className="font-display-lg text-3xl md:text-headline-lg text-on-surface leading-tight">
-              Uncompromising Construction.
+              Renovation and Remodeling
             </h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Quality is never an accident; it is always the result of high intention, sincere effort, and skillful execution. Our construction team operates as master craftsmen.
+              Modern upgrades to existing spaces, blending functionality with sophistication.
             </p>
-            <div className="pt-4">
-              <Link href="/services/construction">
-                <Button variant="ghost">EXPLORE CONSTRUCTION —</Button>
-              </Link>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+              <div className="border-l border-primary/50 pl-6 space-y-2">
+                <span className="font-label-caps text-label-caps text-primary block text-xs tracking-wider">
+                  01. MODERN UPGRADES
+                </span>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  Transforming dated structures into contemporary, high-performing spaces.
+                </p>
+              </div>
+              <div className="border-l border-primary/50 pl-6 space-y-2">
+                <span className="font-label-caps text-label-caps text-primary block text-xs tracking-wider">
+                  02. SOPHISTICATION
+                </span>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  Carefully balancing structural updates with refined interior aesthetics.
+                </p>
+              </div>
             </div>
           </RevealOnScroll>
+          <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2">
+            <ImageReveal>
+              <div className="aspect-[4/5] overflow-hidden ghost-border p-2 bg-surface">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  alt="Modern Remodeling Architecture"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu4no3ERAPRNRP2lS8TNJX_9WWwQVCkteXDGDdvirPUsOLr05M2FF4zdZ6pcUdW1VCPBiOZlvq7XlCotmbGjIGkCYgGSE0RgPURm1Um4_SnKf2gJxhsRGoDnjYj2NbwUjYRhpwDeboxhVME_lJEVgiqJ-FMJ7BVap4S5GO_Ej5h2cecClU69P6Vex5DHV98aZ-zUB1dBSv08rhzRi3BiGEfLvJUoJ_0kjJIwJfAD4P_wLqpagLjI-hM3k1gxVhJUJAMIAhu7Vg4D36"
+                />
+              </div>
+            </ImageReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Division 4: Interior Design & Space Planning */}
+      <section className="py-20 md:py-32 border-t border-gold-muted/10">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-6">
+            <ImageReveal>
+              <div className="aspect-[4/5] overflow-hidden ghost-border p-2 bg-surface">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  alt="Minimalist Interior design and space planning"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuByGv2x4vVNzoJJeOIUmF9ZmSdNgZrkouh02v04PaRMoAp1kbyYIlxy6xZuGFxgWC_gbMFFZSfXymZsIbhxWnBfqiaJMgi87yC1PatwZZ9iUUwtl_eF5kC0QSrHLpvKLn1nxBMdWT5UTHvDPw4tQAvBhIHXdqdroF5F8cMW3oKRV20pT-ucHunaVNRVqlSneMurjTHDOLd0hY37TNZSjuq2YASI9NCjd-jlwj-gAhP9ZJ6fzpfhWBPP-zJLhIhrQ5jDhvn3cr8PQlIh"
+                />
+              </div>
+            </ImageReveal>
+          </div>
+          <RevealOnScroll className="lg:col-span-5 lg:col-start-8 space-y-6" y={15}>
+            <span className="font-label-caps text-label-caps text-primary tracking-widest">
+              INTERIOR DESIGN & SPACE PLANNING
+            </span>
+            <h2 className="font-display-lg text-3xl md:text-headline-lg text-on-surface leading-tight">
+              Interior Design and Space Planning
+            </h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              Transforming interiors with functional layouts and stylish finishes. Custom solutions for residential and corporate environments.
+            </p>
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center gap-6 border-b border-gold-muted/10 pb-4">
+                <span className="font-display-lg text-2xl text-gold-muted font-bold">01</span>
+                <span className="font-body-md text-on-surface">Functional Space Layouts</span>
+              </div>
+              <div className="flex items-center gap-6 border-b border-gold-muted/10 pb-4">
+                <span className="font-display-lg text-2xl text-gold-muted font-bold">02</span>
+                <span className="font-body-md text-on-surface">Bespoke Furniture & Finishes</span>
+              </div>
+              <div className="flex items-center gap-6 border-b border-gold-muted/10 pb-4">
+                <span className="font-display-lg text-2xl text-gold-muted font-bold">03</span>
+                <span className="font-body-md text-on-surface">Residential & Corporate Environments</span>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* Division 5: Consultancy Services */}
+      <section className="bg-surface-container py-20 md:py-32 border-t border-gold-muted/10">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <RevealOnScroll className="lg:col-span-6 order-2 lg:order-1 space-y-6" y={15}>
+            <span className="font-label-caps text-label-caps text-primary tracking-widest">
+              CONSULTANCY SERVICES
+            </span>
+            <h2 className="font-display-lg text-3xl md:text-headline-lg text-on-surface leading-tight">
+              Consultancy Services
+            </h2>
+            <div className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed space-y-4">
+              <p>
+                At Rivendell Consults, we provide a comprehensive suite of services to ensure the success of your architectural and construction projects. Our team of seasoned professionals offers expert advice on building codes, materials, and sustainable practices, ensuring every project complies with the highest safety standards while embracing eco-friendly solutions. We carefully recommend the most suitable materials tailored to your project’s specific needs, balancing durability, aesthetics, and cost-efficiency.
+              </p>
+              <p className="border-l-2 border-primary/40 pl-6 italic">
+                In addition, we specialize in conducting feasibility studies and meticulous project planning to evaluate the practicality, profitability, and long-term value of your vision. Our analyses consider critical factors such as site conditions, environmental impact, budget requirements, and timeline alignment. With a focus on precision and efficiency, we create customized strategies that mitigate risks and provide a clear roadmap for turning your ideas into reality.
+              </p>
+            </div>
+          </RevealOnScroll>
+          <div className="lg:col-span-5 lg:col-start-8 order-1 lg:order-2">
+            <ImageReveal>
+              <div className="aspect-[4/5] overflow-hidden ghost-border p-2 bg-surface">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  alt="Consulting services and blueprint planning"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiAf3ltjzkNfz9s0D78BtwX1_qV9nRSZUfbUcNeG5Ew3qjbI147bXrU8JHmWl7-0vzUhDRSLjI_P6dxZ82j31tyO4enJjxB6H0i8h-_uw6mCtFxGzybsVpkXCrFoGLqdU3yPPIU4odVGcxLNkCWmIJMJR4CO4hIV9yWl78v3Dvmwk-6MfsEbCGO7ywYiX34DyjENeXzcCkYdJ0yzynCPM-H_VawJwwotJ5zc2_RDDrVZEofxasRMaM8fbVHm5tuxm732cb3oMR0T1p"
+                />
+              </div>
+            </ImageReveal>
+          </div>
         </div>
       </section>
 

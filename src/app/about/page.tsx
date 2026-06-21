@@ -20,28 +20,28 @@ export default async function AboutPage() {
   return (
     <div className="pt-24 min-h-screen bg-background text-on-surface">
       {/* Hero */}
-      <section className="py-12 md:py-20 max-w-[1440px] mx-auto px-6 md:px-16 overflow-hidden">
+      <section className="py-12 md:py-20 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <RevealOnScroll className="lg:col-span-8 space-y-6" y={15}>
             <span className="font-label-caps text-label-caps text-primary tracking-[0.3em] block mb-2">
               THE FIRM
             </span>
-            <h1 className="font-display-xl text-4xl sm:text-6xl md:text-5xl lg:text-6xl max-w-4xl text-on-surface leading-none uppercase">
-              Permanence <br />
-              <span className="italic text-primary">Through Rigor.</span>
+            <h1 className="font-display-xl text-4xl sm:text-6xl md:text-5xl lg:text-6xl max-w-4xl text-on-surface leading-tight uppercase">
+              Redefining Spaces <br />
+              with <span className="italic text-primary">Precision, Style, & Innovation.</span>
             </h1>
           </RevealOnScroll>
           <RevealOnScroll className="lg:col-span-4 flex items-end animate-delay-200" y={15}>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-sm mb-4 leading-relaxed">
-              Founded in 2012, Rivendell Consults operates at the intersection of architectural physics, clean layouts, and luxury craftsmanship.
+              Rivendell Consults is a leading construction and architectural firm in Lagos, Nigeria, with over 20 years of experience.
             </p>
           </RevealOnScroll>
         </div>
       </section>
 
       {/* Story & Philosophy */}
-      <section className="py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-16 border-t border-gold-muted/10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 border-t border-gold-muted/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-6 space-y-8">
             <div className="flex items-center gap-4">
               <div className="w-8 h-[0.5px] bg-primary" />
@@ -50,14 +50,32 @@ export default async function AboutPage() {
               </span>
             </div>
             <h2 className="font-display-lg text-3xl md:text-headline-lg italic">
-              Crafting legacies that breathe with life.
+              Building Dreams, Creating Legacies
             </h2>
             <p className="font-body-md text-on-surface-variant leading-relaxed">
-              We began as a boutique design studio focused on Lekki residential commissions. Today, our footprint extends across London, Dubai, and Lusaka, managing complex structural builds, high-yield developments, and bespoke curation details.
+              We specialize in new builds, remodeling, and repairs, delivering innovative designs and precision craftsmanship. Our customer-focused team ensures every project is tailored to meet your needs, budget, and timeline. At Rivendell, we exceed expectations by creating stylish, functional spaces that inspire.
             </p>
-            <p className="font-body-md text-on-surface-variant leading-relaxed border-l border-primary/40 pl-6">
-              Our core design principle is editorial minimalism: avoiding unnecessary decoration to emphasize structural lines, raw materials (stone, glass, steel), and natural light.
+            <p className="font-body-md text-on-surface leading-relaxed border-l-2 border-primary/80 pl-6 italic font-semibold">
+              We don’t just build structures — We craft experiences.
             </p>
+            <p className="font-body-md text-on-surface-variant leading-relaxed">
+              At Rivendell Consults, we specialize in bringing architectural dreams to life. We focus on creating functional, aesthetically pleasing spaces that align with modern trends and sustainable practices. Whether it’s designing innovative commercial spaces, crafting elegant residential homes, or undertaking large-scale construction projects, we thrive on challenges and deliver nothing short of excellence.
+            </p>
+
+            {/* Core Values Section */}
+            <div className="pt-6 space-y-4">
+              <h3 className="font-label-caps text-xs text-primary uppercase tracking-widest font-bold">
+                Core Values
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {["Precision", "Craftsmanship", "Excellence", "Sustainability", "Integrity"].map((val) => (
+                  <div key={val} className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-primary rounded-full shrink-0" />
+                    <span className="font-body-md text-sm text-on-surface">{val}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="lg:col-span-6">
             <ImageReveal>
@@ -142,10 +160,10 @@ export default async function AboutPage() {
 
         <div className="space-y-12 relative border-l border-gold-muted/20 pl-8 md:pl-12 ml-4">
           {[
-            { year: "2012", title: "Inception in Lagos", desc: "Studio set up with focus on bespoke private luxury residences in Lekki Phase 1." },
-            { year: "2016", title: "BIM Integration", desc: "Full shift to BIM virtual modeling, syncing construction frames with architecture." },
-            { year: "2020", title: "Regional Expansion", desc: "Opened coordinate office presence in Lusaka, managing mixed-use estates." },
-            { year: "2023", title: "Urban Excellence Award", desc: "Awarded 'Best Structural Execution' for coastal cantilevers in Lake Como." },
+            { year: "2006", title: "Inception in Lagos", desc: "Firm established in Lagos, specializing in custom residential designs and craftsmanship." },
+            { year: "2012", title: "Lekki Operations Expansion", desc: "Expanded office operations to Lekki Phase 1, managing premium new builds and structural remodeling." },
+            { year: "2018", title: "Construction Management Launch", desc: "Launched dedicated construction management and structural feasibility divisions." },
+            { year: "2024", title: "Sustainable Integration", desc: "Shifted focus to eco-friendly planning, sustainable building codes, and green spaces planning." },
           ].map((mile) => (
             <RevealOnScroll key={mile.year} className="relative space-y-2" y={15}>
               <div className="absolute -left-[45px] md:-left-[61px] top-1.5 w-6 h-6 rounded-full bg-background border border-primary flex items-center justify-center">
