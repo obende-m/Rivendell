@@ -5,7 +5,7 @@ import { GhostBorder } from "@/components/ui/GhostBorder";
 import { VerticalLine } from "@/components/ui/VerticalLine";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 import { ImageReveal } from "@/components/animations/ImageReveal";
-import { StaggerChildren } from "@/components/animations/StaggerChildren";
+import { DevelopmentsBento } from "@/components/sections/DevelopmentsBento";
 
 export const metadata: Metadata = {
   title: "Real Estate Developments",
@@ -97,32 +97,7 @@ export default function DevelopmentsPage() {
           </p>
         </RevealOnScroll>
 
-        <StaggerChildren className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {currentEstates.map((est) => (
-            <div
-              key={est.name}
-              className={`group relative overflow-hidden project-card bg-surface-container-low border border-gold-muted/5 ${est.span}`}
-            >
-              <ImageReveal>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  alt={est.name}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  src={est.img}
-                />
-              </ImageReveal>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10" />
-              <div className="absolute bottom-10 left-10 z-20">
-                <span className="font-label-caps text-[10px] text-on-surface-variant/80 mb-2 block tracking-wider uppercase">
-                  {est.loc}
-                </span>
-                <h3 className="font-display-lg text-2xl md:text-3xl text-on-surface group-hover:text-primary transition-colors duration-500">
-                  {est.name}
-                </h3>
-              </div>
-            </div>
-          ))}
-        </StaggerChildren>
+        <DevelopmentsBento estates={currentEstates} />
       </section>
 
       {/* Investment Opportunities */}

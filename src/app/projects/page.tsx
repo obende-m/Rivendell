@@ -127,8 +127,10 @@ export default function ProjectsPage() {
                 <motion.div
                   key={p._id}
                   variants={staggerItemVariants}
+                  whileHover={{ y: -8, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className={cn(
-                    "group project-card overflow-hidden relative fade-up border border-gold-muted/5 p-1 bg-surface-container",
+                    "group project-card overflow-hidden relative fade-up border border-gold-muted/5 p-1 bg-surface-container transition-colors duration-500 hover:shadow-2xl hover:shadow-primary/5 cursor-pointer block",
                     colSpan,
                     aspect
                   )}

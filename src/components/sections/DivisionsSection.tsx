@@ -70,7 +70,9 @@ export function DivisionsSection({
             <motion.div
               key={div.title}
               variants={staggerItemVariants}
-              className="bg-surface-container group p-6 sm:p-10 md:p-12 relative overflow-hidden transition-all duration-700 hover:bg-surface-container-high border border-transparent hover:border-gold-muted/20 select-none flex flex-col justify-between min-h-[440px]"
+              whileHover={{ y: -8, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="bg-surface-container group p-6 sm:p-10 md:p-12 relative overflow-hidden transition-colors duration-500 hover:bg-surface-container-high border border-transparent hover:border-gold-muted/20 hover:shadow-2xl hover:shadow-primary/5 select-none flex flex-col justify-between min-h-[440px]"
             >
               {/* Floating Icon Top Right */}
               <div className="absolute top-0 right-0 p-8">

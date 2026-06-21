@@ -79,7 +79,9 @@ export function ServicesGrid({
             <motion.div
               key={cap.title}
               variants={staggerItemVariants}
-              className="bg-background p-6 sm:p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 group select-none flex flex-col justify-start min-h-[300px]"
+              whileHover={{ y: -6, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="bg-background p-6 sm:p-10 md:p-12 hover:bg-surface-container transition-colors duration-500 border border-transparent hover:border-gold-muted/10 hover:shadow-2xl hover:shadow-primary/5 group select-none flex flex-col justify-start min-h-[300px]"
             >
               <span className="material-symbols-outlined text-3xl text-primary mb-8 block transition-transform group-hover:scale-110 duration-300">
                 {cap.icon}
