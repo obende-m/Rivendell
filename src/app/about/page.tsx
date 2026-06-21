@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { getTeamMembers } from "@/lib/sanity/queries";
 import { Button } from "@/components/ui/Button";
 import { GhostBorder } from "@/components/ui/GhostBorder";
 import { VerticalLine } from "@/components/ui/VerticalLine";
@@ -11,11 +10,10 @@ import { StaggerChildren } from "@/components/animations/StaggerChildren";
 export const metadata: Metadata = {
   title: "About the Firm",
   description:
-    "Learn about Rivendell Consults, our principal designers, architectural values, and legacy milestones.",
+    "Learn about Rivendell Consults, our architectural values, client experiences, and legacy milestones.",
 };
 
 export default async function AboutPage() {
-  const team = await getTeamMembers();
 
   return (
     <div className="pt-24 min-h-screen bg-background text-on-surface">
@@ -92,54 +90,78 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Testimonials Section */}
       <section className="py-20 md:py-32 bg-surface-container border-t border-gold-muted/10">
         <div className="section-container max-w-[1440px] mx-auto">
           <RevealOnScroll className="max-w-3xl mb-16 md:mb-24" y={15}>
             <span className="font-label-caps text-label-caps text-primary tracking-[0.3em] block mb-3">
-              THE DIRECTORS
+              TESTIMONIALS
             </span>
             <h2 className="font-display-lg text-3xl md:text-headline-lg text-on-surface">
-              Design & Construction Leadership
+              Client Testimonials
             </h2>
           </RevealOnScroll>
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {team.map((member) => (
+            {[
+              {
+                name: "Ayoolanrewaju Kuyebi",
+                position: "Managing Director",
+                company: "GMH Luxury",
+                testimonial:
+                  "Working with Rivendell Consults was a seamless experience from start to finish. Their attention to detail, innovative designs, and commitment to excellence made our dream project a reality. We couldn't be happier with the result!",
+                avatar:
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
+              },
+              {
+                name: "Modupeola Sonola",
+                position: "Chief Operating Officer",
+                company: "GMH Luxury",
+                testimonial:
+                  "Rivendell exceeded our expectations in every way. From the initial concept to the final touches, their team delivered outstanding craftsmanship and professionalism. Our new home is a perfect blend of style and functionality.",
+                avatar:
+                  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80",
+              },
+            ].map((item, index) => (
               <div
-                key={member._id}
-                className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-start group"
+                key={index}
+                className="relative overflow-hidden rounded-2xl border border-primary/10 bg-surface-container-low/40 p-8 backdrop-blur-md shadow-sm transition-all duration-500 hover:border-primary/30 group flex flex-col justify-between"
               >
-                <div className="sm:col-span-5 relative overflow-hidden ghost-border p-1 bg-surface-container-low aspect-[4/5] sm:aspect-auto sm:h-[260px]">
+                <div>
+                  {/* Rating Stars */}
+                  <div className="flex items-center gap-1 mb-6 text-primary">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-4 h-4 fill-current"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  <p className="font-body-md text-base text-on-surface-variant/90 leading-relaxed italic mb-8">
+                    &ldquo;{item.testimonial}&rdquo;
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4 border-t border-gold-muted/10 pt-6">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    src={member.photo?.asset?.url}
+                    alt={item.name}
+                    className="w-12 h-12 rounded-full object-cover border border-primary/20"
+                    src={item.avatar}
                   />
-                </div>
-                <div className="sm:col-span-7 space-y-4 pt-2">
                   <div>
-                    <h3 className="font-playfair text-2xl text-on-surface group-hover:text-primary transition-colors">
-                      {member.name}
+                    <h3 className="font-playfair text-lg text-on-surface">
+                      {item.name}
                     </h3>
                     <p className="font-label-caps text-[9px] text-primary tracking-widest uppercase">
-                      {member.position}
+                      {item.position}, {item.company}
                     </p>
                   </div>
-                  <p className="font-body-md text-xs text-on-surface-variant/80 leading-relaxed">
-                    {member.biography}
-                  </p>
-                  {member.linkedIn && (
-                    <a
-                      href={member.linkedIn}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary-fixed font-label-caps text-[9px] tracking-widest border-b border-primary/20 pb-1"
-                    >
-                      LINKEDIN DOSSIER
-                    </a>
-                  )}
                 </div>
               </div>
             ))}
@@ -185,7 +207,7 @@ export default async function AboutPage() {
       <section className="py-16 text-center border-t border-gold-muted/10 bg-surface-container-low">
         <Link href="/contact">
           <Button variant="primary" className="tracking-[0.25em]">
-            CONNECT WITH OUR DIRECTORS
+            CONNECT WITH US
           </Button>
         </Link>
       </section>

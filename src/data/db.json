@@ -1201,20 +1201,137 @@
     {
       "_id": "test-1",
       "name": "Julian Sterling",
-      "position": "Private Estate Owner",
-      "company": "Sterling Holdings",
+      "position": "Principal Developer",
+      "company": "Sterling Estates",
       "testimonial": "The attention to detail displayed by Rivendell is unparalleled. They didn't just build a home; they crafted a legacy for my family that breathes with life and architectural intelligence.",
+      "rating": 5,
       "featured": true,
-      "displayOrder": 1
+      "displayOrder": 1,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
     },
     {
       "_id": "test-2",
       "name": "Elena Vance",
-      "position": "Senior Developer",
+      "position": "Chief Executive",
       "company": "Vance Developments",
       "testimonial": "Rivendell's ability to navigate complex urban developments while maintaining a pure architectural vision is why they remain our primary choice for luxury construction.",
+      "rating": 5,
       "featured": true,
-      "displayOrder": 2
+      "displayOrder": 2,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      "_id": "test-3",
+      "name": "Marcus Thorne",
+      "position": "Managing Director",
+      "company": "Thorne & Co.",
+      "testimonial": "From excavation to the final finishes, their commitment to structural integrity and refined aesthetics is exemplary. They are true masterbuilders.",
+      "rating": 5,
+      "featured": true,
+      "displayOrder": 3,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      "_id": "test-4",
+      "name": "Dr. Amara Ndubisi",
+      "position": "Founder",
+      "company": "The Canopy Space",
+      "testimonial": "Their sustainable, green-certified design approach transformed our commercial pavilion into a living breathing ecosystem that our clients adore.",
+      "rating": 5,
+      "featured": true,
+      "displayOrder": 4,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      "_id": "test-5",
+      "name": "Victoria Sterling",
+      "position": "Art Curator",
+      "company": "Sterling Art Trust",
+      "testimonial": "The interior atrium spacing, lighting design, and raw stone fireplaces they crafted for our gallery are works of art themselves.",
+      "rating": 5,
+      "featured": true,
+      "displayOrder": 5,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      "_id": "test-6",
+      "name": "Adebayo Adeyemi",
+      "position": "Managing Partner",
+      "company": "Oakwood Partners",
+      "testimonial": "Rivendell Consults delivered our corporate headquarters on schedule and under budget, without compromising on a single detail of their magnificent design.",
+      "rating": 5,
+      "featured": true,
+      "displayOrder": 6,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      "_id": "test-7",
+      "name": "Tariq Al-Mansoor",
+      "position": "Developer",
+      "company": "Al-Mansoor Waterfront",
+      "testimonial": "Their coastal masterplanning is world-class. The waterfront layout and cantilevered structures they designed set a new standard for luxury.",
+      "rating": 5,
+      "featured": true,
+      "displayOrder": 7,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      "_id": "test-8",
+      "name": "Sophia Chen",
+      "position": "Interior Architect",
+      "company": "Studio Chen",
+      "testimonial": "Working alongside Rivendell is always inspiring. Their craftsmanship team executes complex custom carpentry and stone installations with flawless precision.",
+      "rating": 5,
+      "featured": true,
+      "displayOrder": 8,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
+    },
+    {
+      "_id": "test-9",
+      "name": "Chinedu Okafor",
+      "position": "Owner",
+      "company": "The Obsidian Villa",
+      "testimonial": "The obsidian structural framing and glass interfaces they created are phenomenal. Truly Lagos's most innovative architectural firm.",
+      "rating": 5,
+      "featured": true,
+      "displayOrder": 9,
+      "photo": {
+        "asset": {
+          "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      }
     }
   ],
   "galleryAlbums": [
