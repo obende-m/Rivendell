@@ -256,34 +256,29 @@
 }
 
 /* Infinite Marquee Animations */
-@keyframes scroll-up {
+@keyframes scroll-left {
   0% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
   100% {
-    transform: translateY(-50%);
+    transform: translateX(-50%);
   }
 }
 
-@keyframes scroll-down {
+@keyframes scroll-right {
   0% {
-    transform: translateY(-50%);
+    transform: translateX(-50%);
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-.animate-scroll-up {
-  animation: scroll-up 35s linear infinite;
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
 }
 
-.animate-scroll-down {
-  animation: scroll-down 35s linear infinite;
-}
-
-.pause-marquee:hover .animate-scroll-up,
-.pause-marquee:hover .animate-scroll-down {
-  animation-play-state: paused;
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
 }
 

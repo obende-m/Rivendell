@@ -212,27 +212,27 @@ export function TestimonialsSection({
     }
   ] as Testimonial[]);
 
-  // Distribute items into 3 columns
-  const col1: Testimonial[] = [];
-  const col2: Testimonial[] = [];
-  const col3: Testimonial[] = [];
+  // Distribute items into 3 rows
+  const row1: Testimonial[] = [];
+  const row2: Testimonial[] = [];
+  const row3: Testimonial[] = [];
 
   list.forEach((item, idx) => {
-    if (idx % 3 === 0) col1.push(item);
-    else if (idx % 3 === 1) col2.push(item);
-    else col3.push(item);
+    if (idx % 3 === 0) row1.push(item);
+    else if (idx % 3 === 1) row2.push(item);
+    else row3.push(item);
   });
 
   // Helper component to render a single card
   const TestimonialCard = ({ item }: { item: Testimonial }) => {
     const avatarUrl = item.photo?.asset?.url || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&h=150&q=80";
     return (
-      <div className="group relative flex flex-col justify-between p-6 rounded-2xl border border-primary/10 bg-surface-container-low/40 backdrop-blur-md transition-all duration-500 hover:border-primary/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/5 cursor-pointer">
+      <div className="group relative flex flex-col justify-between p-6 rounded-2xl border border-primary/10 bg-surface-container-low/40 backdrop-blur-md transition-all duration-500 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 w-[340px] md:w-[380px] shrink-0">
         <div>
           {/* Rating */}
           <div className="flex gap-0.5 text-primary mb-4">
             {[...Array(item.rating || 5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-primary stroke-none animate-pulse" />
+              <Star key={i} className="w-3.5 h-3.5 fill-primary stroke-none" />
             ))}
           </div>
 
@@ -267,7 +267,7 @@ export function TestimonialsSection({
   };
 
   return (
-    <section className="py-20 md:py-32 bg-background relative overflow-hidden flex flex-col items-center">
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
       <div className="section-container max-w-[1440px] mx-auto text-center relative z-10">
         <RevealOnScroll className="max-w-3xl mx-auto mb-16" y={15}>
           <span className="font-label-caps text-label-caps text-primary tracking-[0.3em] block mb-3 uppercase">
@@ -285,38 +285,37 @@ export function TestimonialsSection({
         </RevealOnScroll>
       </div>
 
-      {/* Marquee Area */}
-      <div className="relative w-full max-w-[1440px] px-6 md:px-12 lg:px-16 mt-8 h-[650px] overflow-hidden flex gap-6 pause-marquee">
-        {/* Top Fade */}
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background via-background/80 to-transparent z-20 pointer-events-none" />
+      {/* Horizontal Marquee Area */}
+      <div className="relative w-full mt-8 space-y-6">
+        {/* Left Fade */}
+        <div className="absolute top-0 left-0 w-24 md:w-40 h-full bg-gradient-to-r from-background via-background/80 to-transparent z-20 pointer-events-none" />
 
-        {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-20 pointer-events-none" />
+        {/* Right Fade */}
+        <div className="absolute top-0 right-0 w-24 md:w-40 h-full bg-gradient-to-l from-background via-background/80 to-transparent z-20 pointer-events-none" />
 
-        {/* Column 1 - scrolls up */}
-        <div className="flex-1 flex flex-col gap-6 overflow-hidden">
-          <div className="flex flex-col gap-6 animate-scroll-up py-4">
-            {/* Render 3 times for super long seamless loop */}
-            {[...col1, ...col1, ...col1].map((item, idx) => (
-              <TestimonialCard key={`c1-${idx}`} item={item} />
+        {/* Row 1 - scrolls left */}
+        <div className="overflow-hidden">
+          <div className="flex gap-6 animate-scroll-left w-max">
+            {[...row1, ...row1].map((item, idx) => (
+              <TestimonialCard key={`r1-${idx}`} item={item} />
             ))}
           </div>
         </div>
 
-        {/* Column 2 - scrolls down */}
-        <div className="hidden md:flex flex-1 flex-col gap-6 overflow-hidden">
-          <div className="flex flex-col gap-6 animate-scroll-down py-4">
-            {[...col2, ...col2, ...col2].map((item, idx) => (
-              <TestimonialCard key={`c2-${idx}`} item={item} />
+        {/* Row 2 - scrolls right */}
+        <div className="overflow-hidden">
+          <div className="flex gap-6 animate-scroll-right w-max">
+            {[...row2, ...row2].map((item, idx) => (
+              <TestimonialCard key={`r2-${idx}`} item={item} />
             ))}
           </div>
         </div>
 
-        {/* Column 3 - scrolls up */}
-        <div className="hidden lg:flex flex-1 flex-col gap-6 overflow-hidden">
-          <div className="flex flex-col gap-6 animate-scroll-up py-4">
-            {[...col3, ...col3, ...col3].map((item, idx) => (
-              <TestimonialCard key={`c3-${idx}`} item={item} />
+        {/* Row 3 - scrolls left */}
+        <div className="overflow-hidden">
+          <div className="flex gap-6 animate-scroll-left w-max" style={{ animationDuration: '35s' }}>
+            {[...row3, ...row3].map((item, idx) => (
+              <TestimonialCard key={`r3-${idx}`} item={item} />
             ))}
           </div>
         </div>
@@ -324,3 +323,4 @@ export function TestimonialsSection({
     </section>
   );
 }
+
