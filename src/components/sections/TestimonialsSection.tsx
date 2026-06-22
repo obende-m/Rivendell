@@ -286,17 +286,17 @@ export function TestimonialsSection({
       </div>
 
       {/* Horizontal Marquee Area */}
-      <div className="relative w-full mt-8 space-y-6">
+      <div className="relative w-full mt-8 space-y-6 overflow-hidden">
         {/* Left Fade */}
-        <div className="absolute top-0 left-0 w-24 md:w-40 h-full bg-gradient-to-r from-background via-background/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
 
         {/* Right Fade */}
-        <div className="absolute top-0 right-0 w-24 md:w-40 h-full bg-gradient-to-l from-background via-background/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
 
         {/* Row 1 - scrolls left */}
         <div className="overflow-hidden">
           <div className="flex gap-6 animate-scroll-left w-max">
-            {[...row1, ...row1].map((item, idx) => (
+            {[...row1, ...row1, ...row1, ...row1].map((item, idx) => (
               <TestimonialCard key={`r1-${idx}`} item={item} />
             ))}
           </div>
@@ -305,7 +305,7 @@ export function TestimonialsSection({
         {/* Row 2 - scrolls right */}
         <div className="overflow-hidden">
           <div className="flex gap-6 animate-scroll-right w-max">
-            {[...row2, ...row2].map((item, idx) => (
+            {[...row2, ...row2, ...row2, ...row2].map((item, idx) => (
               <TestimonialCard key={`r2-${idx}`} item={item} />
             ))}
           </div>
@@ -314,7 +314,7 @@ export function TestimonialsSection({
         {/* Row 3 - scrolls left */}
         <div className="overflow-hidden">
           <div className="flex gap-6 animate-scroll-left w-max" style={{ animationDuration: '35s' }}>
-            {[...row3, ...row3].map((item, idx) => (
+            {[...row3, ...row3, ...row3, ...row3].map((item, idx) => (
               <TestimonialCard key={`r3-${idx}`} item={item} />
             ))}
           </div>
